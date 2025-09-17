@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Site web - activité de kinésiologie indépendante</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    p.intro {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #555;
+    }
+    form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 700px;
+      margin: auto;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input[type="text"], input[type="email"], input[type="tel"], input[type="date"], select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    input[type="checkbox"], input[type="radio"] {
+      margin-right: 6px;
+    }
+    textarea {
+      min-height: 100px;
+    }
+    button {
+      display: block;
+      margin: 20px auto 0;
+      padding: 12px 24px;
+      background: #0073e6;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #005bb5;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Site web - activité de kinésiologie indépendante</h1>
+  <p class="intro">
+    Bonjour Johanna, merci de bien vouloir répondre aux questions ci-dessous qui me permettront de mieux affiner ma compréhension de votre besoin.
+  </p>
+
+  <form action="https://formspree.io/f/mandgdjr" method="POST">
+
+    <!-- Identité et image -->
+    <label>1. Comment souhaitez-vous que vos clients perçoivent votre activité ?</label>
+    <input type="checkbox" name="perception" value="Professionnel"> Sérieux / professionnel<br>
+    <input type="checkbox" name="perception" value="Bien-être"> Bien-être / apaisement<br>
+    <input type="checkbox" name="perception" value="Vitalité"> Énergie / vitalité<br>
+    <input type="checkbox" name="perception" value="Accompagnement"> Accompagnement personnel<br>
+    <input type="text" name="perception_autre" placeholder="Autre...">
+
+    <label>2. Disposez-vous de photos professionnelles que vous souhaitez utiliser pour le site ?</label>
+    <input type="radio" name="photos" value="propres"> Oui, je fournirai mes propres photos<br>
+    <input type="radio" name="photos" value="design"> Non, je préfère un design neutre / visuels génériques
+
+    <label>3. Avez-vous des textes ou documents issus de vos formations à intégrer ?</label>
+    <input type="radio" name="textes" value="oui"> Oui<br>
+    <input type="radio" name="textes" value="non"> Non<br>
+    <input type="radio" name="textes" value="creer"> À créer
+
+    <!-- Activité et organisation -->
+    <label>4. Quel pourcentage de votre activité est consacré à la kinésiologie ?</label>
+    <select name="pourcentage">
+      <option value="">-- Sélectionnez --</option>
+      <option>100%</option>
+      <option>75%</option>
+      <option>50%</option>
+      <option>25%</option>
+      <option>Autre</option>
+    </select>
+
+    <label>5. Quels types de clients ciblez-vous ?</label>
+    <input type="checkbox" name="clients" value="adultes"> Adultes<br>
+    <input type="checkbox" name="clients" value="enfants"> Enfants<br>
+    <input type="checkbox" name="clients" value="ados"> Adolescents<br>
+    <input type="checkbox" name="clients" value="entreprises"> Entreprises<br>
+    <input type="checkbox" name="clients" value="sportifs"> Sportifs<br>
+    <input type="text" name="clients_autres" placeholder="Précisions...">
+
+    <label>6. Proposez-vous des séances en présentiel ou à distance ?</label>
+    <input type="radio" name="seances" value="presentiel"> Présentiel uniquement<br>
+    <input type="radio" name="seances" value="distanciel"> Distanciel uniquement<br>
+    <input type="radio" name="seances" value="les deux"> Les deux
+    <textarea name="details_seances" placeholder="Si distanciel : durée, anamnèse en ligne, etc."></textarea>
+
+    <label>7. Disposez-vous déjà d’une grille tarifaire ?</label>
+    <input type="radio" name="tarifs" value="oui"> Oui<br>
+    <input type="radio" name="tarifs" value="non"> Non<br>
+    <input type="radio" name="tarifs" value="encours"> En cours
+
+    <!-- Relation client -->
+    <label>8. Comment souhaitez-vous que vos clients vous contactent ?</label>
+    <input type="checkbox" name="contact" value="tel"> Téléphone<br>
+    <input type="checkbox" name="contact" value="mail"> E-mail<br>
+    <input type="checkbox" name="contact" value="form"> Formulaire web<br>
+    <input type="checkbox" name="contact" value="whatsapp"> WhatsApp<br>
+    <input type="text" name="contact_autre" placeholder="Autre...">
+
+    <label>9. Souhaitez-vous permettre la prise de rendez-vous en ligne ?</label>
+    <input type="radio" name="rdv" value="oui"> Oui<br>
+    <input type="radio" name="rdv" value="non"> Non<br>
+    <input type="radio" name="rdv" value="plus tard"> Peut-être plus tard
+
+    <label>10. Avant une première séance, quelles informations souhaitez-vous récolter ?</label>
+    <input type="checkbox" name="infos" value="coordonnees"> Coordonnées<br>
+    <input type="checkbox" name="infos" value="motif"> Motif de consultation<br>
+    <input type="checkbox" name="infos" value="medical"> Historique médical succinct<br>
+    <input type="checkbox" name="infos" value="disponibilites"> Disponibilités<br>
+    <input type="text" name="infos_autres" placeholder="Autre...">
+    <br>
+    <input type="checkbox" name="questionnaire" value="oui"> Je souhaite intégrer un mini-questionnaire en ligne
+
+    <!-- Contraintes et moyens -->
+    <label>11. Quel budget prévoyez-vous pour la création du site ?</label>
+    <select name="budget">
+      <option value="">-- Sélectionnez --</option>
+      <option>Moins de 500 CHF</option>
+      <option>500–1'000 CHF</option>
+      <option>1'000–2'000 CHF</option>
+      <option>Plus de 2'000 CHF</option>
+      <option>Non défini</option>
+    </select>
+
+    <label>12. Souhaitez-vous un paiement unique ou des paiements échelonnés ?</label>
+    <input type="radio" name="paiement" value="unique"> Paiement unique<br>
+    <input type="radio" name="paiement" value="etales"> Paiements étalés
+
+    <label>13. Souhaitez-vous que le site soit prêt pour une date précise ?</label>
+    <input type="date" name="date_site">
+
+    <!-- Remarques -->
+    <label>Remarques additionnelles</label>
+    <textarea name="remarques"></textarea>
+
+    <button type="submit">Envoyer</button>
+  </form>
+
+</body>
+</html>
