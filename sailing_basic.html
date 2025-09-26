@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Questionnaire Sponsoring Régate – Olivier</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; max-width: 840px; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; }
+    h1 { margin-bottom: .25rem; }
+    .hint { color:#666; font-size:.95rem; margin-bottom:1.25rem; }
+    fieldset { border:1px solid #ddd; border-radius:8px; padding:1rem 1.25rem; margin:1.25rem 0; }
+    legend { font-weight:700; padding:0 .5rem; }
+    label { display:block; margin:.25rem 0; }
+    .row { margin:.5rem 0 1rem; }
+    button, input[type="submit"] { padding:.6rem 1rem; border:1px solid #222; border-radius:.6rem; background:#111; color:#fff; cursor:pointer; }
+    .small { font-size:.9rem; color:#555; }
+  </style>
+</head>
+<body>
+  <h1>Questionnaire Sponsoring Régate – Olivier</h1>
+  <p class="hint">Merci de répondre à chaque question avec précision.</p>
+
+  <form action="https://formspree.io/f/xyznzqad" method="POST">
+
+    <!-- Objectifs financiers -->
+    <fieldset>
+      <legend>🎯 Objectifs financiers</legend>
+      <div class="row">
+        <label>1. Budget par poste (en CHF) :</label>
+        <label>Voiles : <input type="number" name="budget_voiles" min="0" step="1"></label>
+        <label>Décoration bateau : <input type="number" name="budget_decoration" min="0" step="1"></label>
+        <label>Équipement technique (GoPro, crochets, etc.) : <input type="number" name="budget_equipement" min="0" step="1"></label>
+        <label>Divers : <input type="number" name="budget_divers" min="0" step="1"></label>
+      </div>
+      <div class="row">
+        <label>2. Postes prioritaires :</label>
+        <label><input type="checkbox" name="prioritaires[]" value="Voiles"> Voiles</label>
+        <label><input type="checkbox" name="prioritaires[]" value="Décoration"> Décoration bateau</label>
+        <label><input type="checkbox" name="prioritaires[]" value="Équipement"> Équipement technique</label>
+        <label><input type="checkbox" name="prioritaires[]" value="Divers"> Divers</label>
+      </div>
+    </fieldset>
+
+    <!-- Visibilité -->
+    <fieldset>
+      <legend>📢 Visibilité</legend>
+      <div class="row">
+        <label>3. Couverture médiatique attendue :</label>
+        <input type="text" name="couverture_media">
+      </div>
+      <div class="row">
+        <label>4. Présence digitale :</label>
+        <label><input type="checkbox" name="digital[]" value="Site web"> Site web</label>
+        <label><input type="checkbox" name="digital[]" value="Facebook"> Facebook</label>
+        <label><input type="checkbox" name="digital[]" value="Instagram"> Instagram</label>
+        <label><input type="checkbox" name="digital[]" value="YouTube"> YouTube</label>
+        <label><input type="checkbox" name="digital[]" value="Autre"> Autre</label>
+        <label>Audience estimée : <input type="text" name="audience_estimee"></label>
+      </div>
+      <div class="row">
+        <label>5. Garanties de visibilité pour le sponsor :</label>
+        <label><input type="checkbox" name="visibilite[]" value="Logo coque"> Logo sur coque</label>
+        <label><input type="checkbox" name="visibilite[]" value="Logo voiles"> Logo sur voiles</label>
+        <label><input type="checkbox" name="visibilite[]" value="Réseaux sociaux"> Mentions réseaux sociaux</label>
+        <label><input type="checkbox" name="visibilite[]" value="Presse"> Mention presse</label>
+        <label><input type="checkbox" name="visibilite[]" value="Autre"> Autre</label>
+      </div>
+    </fieldset>
+
+    <!-- Offre sponsor -->
+    <fieldset>
+      <legend>🤝 Offre au sponsor</legend>
+      <div class="row">
+        <label>6. Contreparties originales :</label>
+        <label><input type="checkbox" name="contreparties[]" value="Sortie bateau"> Sortie en bateau avec équipage</label>
+        <label><input type="checkbox" name="contreparties[]" value="Soirée privée"> Soirée privée au club La Matelotte</label>
+        <label><input type="checkbox" name="contreparties[]" value="Conférence"> Témoignage ou conférence interne</label>
+        <label><input type="checkbox" name="contreparties[]" value="Autre"> Autre</label>
+      </div>
+      <div class="row">
+        <label>7. Type de partenariat préféré :</label>
+        <label><input type="radio" name="partenariat" value="Unique"> Sponsoring unique</label>
+        <label><input type="radio" name="partenariat" value="Pluriannuel"> Partenariat pluriannuel</label>
+      </div>
+      <div class="row">
+        <label>8. Suivi post-régate prévu :</label>
+        <label><input type="checkbox" name="suivi[]" value="Rapport écrit"> Rapport écrit</label>
+        <label><input type="checkbox" name="suivi[]" value="Album photo/vidéo"> Album photo/vidéo</label>
+        <label><input type="checkbox" name="suivi[]" value="Remerciements publics"> Remerciements publics</label>
+        <label><input type="checkbox" name="suivi[]" value="Invitation post-régate"> Invitation post-régate</label>
+        <label><input type="checkbox" name="suivi[]" value="Autre"> Autre</label>
+      </div>
+    </fieldset>
+
+    <!-- Storytelling -->
+    <fieldset>
+      <legend>🔥 Storytelling</legend>
+      <div class="row">
+        <label>9. Émotion principale à transmettre :</label>
+        <label><input type="radio" name="emotion" value="Adrénaline"> Adrénaline du départ</label>
+        <label><input type="radio" name="emotion" value="Esprit d’équipe"> Esprit d’équipe</label>
+        <label><input type="radio" name="emotion" value="Dépassement de soi"> Dépassement de soi</label>
+        <label><input type="radio" name="emotion" value="Liberté"> Liberté en mer</label>
+        <label><input type="radio" name="emotion" value="Autre"> Autre</label>
+      </div>
+      <div class="row">
+        <label>10. Résumer ton projet en une phrase inspirante :</label>
+        <textarea name="phrase_inspirante" rows="3" cols="40"></textarea>
+      </div>
+    </fieldset>
+
+    <div class="row">
+      <input type="submit" value="Envoyer">
+    </div>
+  </form>
+
+  <p class="small">Les réponses seront transmises pour structurer le projet sponsoring.</p>
+</body>
+</html>
