@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Questionnaire – Voyage sur-mesure au Népal</title>
+  <style>
+    :root{
+      --bg:#faf9fb; --card:#ffffff; --ink:#0f172a; --muted:#64748b;
+      --pri:#5fb3b3; --pri-weak:#e7f6f6; --acc:#f5a3b7; --acc-weak:#fdebf1;
+      --radius:16px; --pad:16px; --gap:14px; --max:860px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:linear-gradient(180deg,#fbfcff,var(--bg));
+         font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;color:var(--ink)}
+    .wrap{max-width:var(--max);margin:28px auto;padding:0 14px}
+    header{margin-bottom:18px}
+    h1{font-size:1.5rem;margin:0 0 6px}
+    p.lead{margin:0;color:var(--muted)}
+    form{display:grid;gap:var(--gap)}
+    fieldset{border:0;margin:0;padding:0}
+    .card{background:var(--card);border:1px solid #e5e7eb;border-radius:var(--radius);padding:var(--pad);
+          box-shadow:0 1px 2px rgba(0,0,0,.03)}
+    legend{font-weight:700;margin-bottom:8px}
+    .grid{display:grid;gap:var(--gap)}
+    .grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    @media (max-width:760px){.grid.cols-2,.grid.cols-3{grid-template-columns:1fr}}
+    label{display:block;font-weight:600;margin-bottom:6px}
+    .hint{font-size:.92rem;color:var(--muted)}
+    input[type=text],input[type=email],input[type=tel],input[type=number],select,textarea{
+      width:100%;padding:11px 12px;border:1px solid #e5e7eb;border-radius:12px;background:#fff
+    }
+    textarea{min-height:96px;resize:vertical}
+    .chips{display:flex;flex-wrap:wrap;gap:10px}
+    .chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid #e5e7eb;border-radius:999px;background:#fff}
+    .pill{display:inline-block;background:var(--pri-weak);color:#0b7f7f;padding:2px 10px;border-radius:999px;font-size:.82rem;margin-left:6px}
+    .req::after{content:" *";color:#dc2626}
+    .accent{background:linear-gradient(180deg,#f7fbfb,#ffffff);border-color:#d8eeee}
+    .accent legend{color:#0b7f7f}
+    .cta{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    button{appearance:none;border:0;border-radius:14px;padding:12px 16px;font-weight:700;cursor:pointer}
+    button.primary{background:var(--pri);color:#083535}
+    button.ghost{background:#fff;border:1px solid #e5e7eb}
+    .note{background:var(--acc-weak);border:1px solid #fbd0dc;border-radius:12px;padding:10px 12px;color:#8a2342}
+    .sep{height:1px;background:#e5e7eb;margin:4px 0 10px}
+    .range-row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}
+    input[type=range]{width:100%}
+    .footer{font-size:.9rem;color:var(--muted);text-align:center;margin-top:10px}
+    a{color:#0b7f7f}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Voyage au Népal • Questionnaire express <span class="pill">conversationnel</span></h1>
+      <p class="lead">Namaste 🙏 Vous rêvez du Népal ? Parlons de votre voyage idéal. 5–7 minutes.</p>
+    </header>
+
+    <form id="q" method="POST" action="https://formspree.io/f/xzzjdawe" novalidate>
+      <!-- Champ caché pour redirection -->
+      <input type="hidden" name="_redirect" value="https://cedbo26.github.io/forms/merci.html" />
+      <input type="hidden" name="_subject" value="Nicolas • Questionnaire Bêta-Users" />
+      <input type="hidden" name="_language" value="fr" />
+
+      <!-- 1. Motivations -->
+      <fieldset class="card accent">
+        <legend>1) Ce qui vous attire le plus</legend>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="motivation" value="Trekking"> Trekking / montagne</label>
+          <label class="chip"><input type="checkbox" name="motivation" value="Culture"> Culture & patrimoine</label>
+          <label class="chip"><input type="checkbox" name="motivation" value="Spiritualité"> Spiritualité</label>
+          <label class="chip"><input type="checkbox" name="motivation" value="Immersion locale"> Immersion locale</label>
+          <label class="chip"><input type="checkbox" id="mot-autre" name="motivation" value="Autre"> Autre</label>
+        </div>
+        <div id="mot-autre-wrap" class="grid" style="margin-top:10px;display:none">
+          <label for="motivation_autre">Précisez</label>
+          <input type="text" id="motivation_autre" name="motivation_autre" maxlength="120" placeholder="Ex. photographie, cuisine, volontariat…" />
+        </div>
+      </fieldset>
+
+      <!-- 2. Style -->
+      <fieldset class="card accent">
+        <legend>2) Votre style de voyage</legend>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="style" value="Aventurier" required> Aventurier</label>
+          <label class="chip"><input type="radio" name="style" value="Équilibré"> Équilibré</label>
+          <label class="chip"><input type="radio" name="style" value="Premium"> Premium</label>
+        </div>
+      </fieldset>
+
+      <!-- 3. Rythme -->
+      <fieldset class="card accent">
+        <legend>3) Rythme & énergie</legend>
+        <label for="sport" class="req">À quel point êtes-vous sportif ?</label>
+        <div class="hint">1 = débutant · 5 = aguerri</div>
+        <output id="sport-out">3</output>
+        <input type="range" id="sport" name="sportivite" min="1" max="5" step="1" value="3" />
+        <div class="chips" style="margin-top:10px">
+          <label class="chip"><input type="radio" name="duree" value="7j" required> 7 jours</label>
+          <label class="chip"><input type="radio" name="duree" value="10-12j"> 10–12 jours</label>
+          <label class="chip"><input type="radio" name="duree" value=">=15j"> 15+ jours</label>
+        </div>
+      </fieldset>
+
+      <!-- 4. Budget -->
+      <fieldset class="card accent">
+        <legend>4) Budget indicatif</legend>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="budget" value="<1500" required> < 1500 CHF</label>
+          <label class="chip"><input type="radio" name="budget" value="1500-2500"> 1500–2500 CHF</label>
+          <label class="chip"><input type="radio" name="budget" value=">2500"> > 2500 CHF</label>
+        </div>
+        <div class="sep"></div>
+        <label class="req">Souhaitez-vous que nous gérions aussi les vols ?</label>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="vols" value="Oui" required> Oui</label>
+          <label class="chip"><input type="radio" name="vols" value="Non"> Non</label>
+        </div>
+      </fieldset>
+
+      <!-- 5. Engagement -->
+      <fieldset class="card accent">
+        <legend>5) Cohorte pionnière</legend>
+        <p>Nous lançons une aventure unique avec <strong>10 pionniers</strong> suisses.</p>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="engagement" value="Oui" required> Oui</label>
+          <label class="chip"><input type="radio" name="engagement" value="Peut-être"> Peut-être</label>
+          <label class="chip"><input type="radio" name="engagement" value="Non"> Non</label>
+        </div>
+      </fieldset>
+
+      <!-- 6. Profil -->
+      <fieldset class="card">
+        <legend>6) Votre profil</legend>
+        <div class="grid cols-2">
+          <div><label for="nom" class="req">Nom et prénom</label><input id="nom" name="nom" type="text" required /></div>
+          <div><label for="email" class="req">Email</label><input id="email" name="email" type="email" required /></div>
+        </div>
+        <div class="grid cols-3" style="margin-top:8px">
+          <div><label for="tel">Téléphone</label><input id="tel" name="tel" type="tel" placeholder="+41…" /></div>
+          <div><label for="age" class="req">Âge</label><input id="age" name="age" type="number" min="18" max="99" required /></div>
+          <div><label for="langue" class="req">Langue</label><select id="langue" name="langue" required><option value=\"\">—</option><option>Français</option><option>Allemand</option><option>Anglais</option></select></div>
+        </div>
+        <label for="ville" class="req">Ville / pays</label><input id="ville" name="ville" type="text" required />
+        <div class="sep"></div>
+        <label class="chip"><input type="checkbox" id="consent" name="consent" required> J’accepte le traitement de mes données.</label>
+        <div id="consent-error" class="hint" style="color:#b91c1c;display:none">Le consentement est requis.</div>
+      </fieldset>
+
+      <div class="cta">
+        <button type="submit" class="primary">Envoyer ma candidature</button>
+      </div>
+      <div class="footer">Ou suivez-nous : <a href="#">Instagram</a> · <a href="#">Facebook</a> · <a href="#">LinkedIn</a></div>
+    </form>
+  </div>
+
+  <script>
+    const motAutre=document.getElementById('mot-autre');
+    const motWrap=document.getElementById('mot-autre-wrap');
+    const sport=document.getElementById('sport');
+    const sportOut=document.getElementById('sport-out');
+    motAutre.addEventListener('change',()=>{motWrap.style.display=motAutre.checked?'grid':'none'});
+    sport.addEventListener('input',()=>sportOut.textContent=sport.value);
+    const f=document.getElementById('q');const consent=document.getElementById('consent');const consentErr=document.getElementById('consent-error');
+    f.addEventListener('submit',e=>{if(!consent.checked){e.preventDefault();consentErr.style.display='block'}});
+  </script>
+</body>
+</html>
