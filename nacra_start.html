@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Questionnaire Régate – Projet Olivier</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; max-width: 840px; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; }
+    h1 { margin-bottom: .25rem; }
+    .hint { color:#666; font-size:.95rem; margin-bottom:1.25rem; }
+    fieldset { border:1px solid #ddd; border-radius:8px; padding:1rem 1.25rem; margin:1.25rem 0; }
+    legend { font-weight:700; padding:0 .5rem; }
+    label { display:block; margin:.25rem 0; }
+    .row { margin:.5rem 0 1rem; }
+    input[type="text"], input[type="number"], textarea { width:100%; padding:.45rem .55rem; border:1px solid #ccc; border-radius:6px; }
+    button, input[type="submit"] { padding:.6rem 1rem; border:1px solid #222; border-radius:.6rem; background:#111; color:#fff; cursor:pointer; }
+    .small { font-size:.9rem; color:#555; }
+  </style>
+</head>
+<body>
+  <h1>Questionnaire Régate – Projet Olivier</h1>
+  <p class="hint">Réponds précisément. Utilise des chiffres pour les champs CHF et %.</p>
+
+  <form action="https://formspree.io/f/mvgwzwqr" method="POST">
+    <input type="hidden" name="form_label" value="Questionnaire Regate - Projet Olivier">
+
+    <!-- Bloc 1 – Vision & Motivation -->
+    <fieldset>
+      <legend>🎯 Bloc 1 – Vision & Motivation</legend>
+
+      <div class="row">
+        <label>1. Quelle est ta vision globale avec ce bateau et la régate ?</label>
+        <textarea name="vision_globale" rows="3" placeholder="Ex.: construire une trajectoire durable, viser podiums, etc."></textarea>
+      </div>
+
+      <div class="row">
+        <label>1.1. Orientation principale :</label>
+        <label><input type="radio" name="orientation" value="Titres"> Gagner des titres</label>
+        <label><input type="radio" name="orientation" value="Reconnaissance"> Être reconnu dans le milieu</label>
+        <label><input type="radio" name="orientation" value="Passion"> Vivre ta passion de manière durable</label>
+        <label><input type="radio" name="orientation" value="Autre"> Autre :</label>
+        <input type="text" name="orientation_autre" placeholder="Préciser si 'Autre'">
+      </div>
+
+      <div class="row">
+        <label>2. Qu’est-ce que la voile représente pour toi aujourd’hui, au-delà du sport ?</label>
+        <input type="text" name="signification_voile" placeholder="Ex.: liberté, transmission, équilibre, etc.">
+      </div>
+
+      <div class="row">
+        <label>3. Résultats ou classements dont tu es le plus fier (année – régate – classement) :</label>
+        <textarea name="resultats_fiers" rows="3" placeholder="Liste libre"></textarea>
+      </div>
+
+      <div class="row">
+        <label>3.1. Souhaites-tu mettre ces résultats en avant dans le dossier sponsor ?</label>
+        <label><input type="radio" name="resultats_highlight" value="Oui"> Oui</label>
+        <label><input type="radio" name="resultats_highlight" value="Non"> Non</label>
+        <label><input type="radio" name="resultats_highlight" value="Partiel"> Certains seulement</label>
+        <input type="text" name="resultats_preciser" placeholder="Si 'Certains seulement', préciser lesquels et pourquoi">
+      </div>
+
+      <div class="row">
+        <label>4. Tes objectifs par horizon :</label>
+        <label>1 an : <input type="text" name="objectif_1an" placeholder="Objectif court terme"></label>
+        <label>3 ans : <input type="text" name="objectif_3ans" placeholder="Objectif moyen terme"></label>
+        <label>5 ans et + : <input type="text" name="objectif_5ans" placeholder="Objectif long terme"></label>
+      </div>
+
+      <div class="row">
+        <label>5. Obstacles principaux :</label>
+        <label><input type="checkbox" name="obstacles[]" value="Financiers"> Financiers</label>
+        <label><input type="checkbox" name="obstacles[]" value="Materiels"> Matériels (bateau, voiles, accastillage)</label>
+        <label><input type="checkbox" name="obstacles[]" value="Organisationnels"> Organisationnels / logistiques</label>
+        <label><input type="checkbox" name="obstacles[]" value="Sante_AI"> Santé / contraintes personnelles (AI)</label>
+        <label><input type="checkbox" name="obstacles[]" value="Autre"> Autre</label>
+        <input type="text" name="obstacles_autre" placeholder="Préciser si 'Autre'">
+      </div>
+
+      <div class="row">
+        <label>5.1. Impact des obstacles sur ton projet :</label>
+        <textarea name="impact_obstacles" rows="3" placeholder="Décrire l'impact concret"></textarea>
+      </div>
+
+      <div class="row">
+        <label>5.2. Si 'Santé / AI' sélectionné : souhaites-tu l’intégrer au storytelling sponsor ?</label>
+        <label><input type="radio" name="ai_storytelling" value="Oui"> Oui</label>
+        <label><input type="radio" name="ai_storytelling" value="Non"> Non</label>
+      </div>
+    </fieldset>
+
+    <!-- Bloc 2 – Objectifs & Sponsoring -->
+    <fieldset>
+      <legend>📌 Bloc 2 – Objectifs & Sponsoring</legend>
+
+      <div class="row">
+        <label>6. Objectif sportif immédiat (prochaine saison) :</label>
+        <input type="text" name="objectif_immediat" placeholder="Ex.: top 10 au Bol d’Or, circuit X, etc.">
+      </div>
+
+      <div class="row">
+        <label>6.1. Régate prioritaire à viser :</label>
+        <input type="text" name="regate_prioritaire" placeholder="Nom, lieu, date si connu">
+      </div>
+
+      <div class="row">
+        <label>7. Objectif sportif à moyen terme (2–3 ans) :</label>
+        <input type="text" name="objectif_moyen_terme">
+      </div>
+
+      <div class="row">
+        <label>8. Objectif extra-sportif :</label>
+        <label><input type="checkbox" name="objectif_extra[]" value="Visibilite"> Créer de la visibilité médiatique</label>
+        <label><input type="checkbox" name="objectif_extra[]" value="Transmission"> Transmission / jeunes navigateurs</label>
+        <label><input type="checkbox" name="objectif_extra[]" value="Valoriser_AI"> Valoriser le parcours avec l’AI</label>
+        <label><input type="checkbox" name="objectif_extra[]" value="Autre"> Autre</label>
+        <input type="text" name="objectif_extra_autre" placeholder="Préciser si 'Autre'">
+      </div>
+
+      <div class="row">
+        <label>9. Ce que tu veux obtenir d’un sponsor (au-delà du financement) :</label>
+        <label><input type="checkbox" name="attentes_sponsor[]" value="Reseau"> Mise en réseau</label>
+        <label><input type="checkbox" name="attentes_sponsor[]" value="Materiel"> Apport matériel (voiles, équipements)</label>
+        <label><input type="checkbox" name="attentes_sponsor[]" value="Communication"> Accompagnement communication</label>
+        <label><input type="checkbox" name="attentes_sponsor[]" value="Valorisation_sociale"> Valorisation personnelle / sociale</label>
+        <label><input type="checkbox" name="attentes_sponsor[]" value="Autre"> Autre</label>
+        <input type="text" name="attentes_sponsor_autre" placeholder="Préciser si 'Autre'">
+      </div>
+
+      <div class="row">
+        <label>10. Type de relation sponsor souhaitée :</label>
+        <label><input type="radio" name="type_relation" value="One-shot"> Soutien ponctuel (one-shot)</label>
+        <label><input type="radio" name="type_relation" value="Fidelite"> Partenariat récurrent (fidélité)</label>
+        <label><input type="radio" name="type_relation" value="Ouvert"> Ouvert aux deux</label>
+      </div>
+
+      <div class="row">
+        <label>10.1. Pourquoi ce choix ?</label>
+        <textarea name="justif_relation" rows="3"></textarea>
+      </div>
+    </fieldset>
+
+    <!-- Bloc 3 – Ressources & Finances -->
+    <fieldset>
+      <legend>💰 Bloc 3 – Ressources & Finances</legend>
+
+      <div class="row">
+        <label>11. Budget annuel minimum pour régater correctement (CHF) :</label>
+        <input type="number" name="budget_annuel_min" min="0" step="1" inputmode="numeric" placeholder="CHF">
+      </div>
+
+      <div class="row">
+        <label>12. Part déjà couverte de ce budget (%) :</label>
+        <input type="number" name="budget_couvert_pct" min="0" max="100" step="1" inputmode="numeric" placeholder="%">
+      </div>
+
+      <div class="row">
+        <label>12.1. Sources actuelles :</label>
+        <label><input type="checkbox" name="sources_actuelles[]" value="Perso"> Ressources personnelles</label>
+        <label><input type="checkbox" name="sources_actuelles[]" value="AI"> Aides (AI)</label>
+        <label><input type="checkbox" name="sources_actuelles[]" value="Club"> Club</label>
+        <label><input type="checkbox" name="sources_actuelles[]" value="Sponsors_actuels"> Sponsors actuels</label>
+        <label><input type="checkbox" name="sources_actuelles[]" value="Autre"> Autre</label>
+        <input type="text" name="sources_autre" placeholder="Préciser si 'Autre'">
+      </div>
+
+      <div class="row">
+        <label>13. Sponsors / marques envisagés :</label>
+        <label><input type="checkbox" name="sponsors_envisages[]" value="Boxer"> Boxer</label>
+        <label><input type="checkbox" name="sponsors_envisages[]" value="Clancher"> Clancher</label>
+        <label>Marques techniques voile : <input type="text" name="sponsors_tech"></label>
+        <label>Autres secteurs : <input type="text" name="sponsors_autres"></label>
+        <label>Sponsors déjà contactés : <input type="text" name="sponsors_contactes"></label>
+      </div>
+
+      <div class="row">
+        <label>14. Pourquoi ces marques sont pertinentes pour ton projet ?</label>
+        <textarea name="pertinence_marques" rows="3"></textarea>
+      </div>
+
+      <div class="row">
+        <label>15. Contreparties que tu peux offrir :</label>
+        <label><input type="checkbox" name="contreparties[]" value="Logo_bateau"> Logo sur bateau</label>
+        <label><input type="checkbox" name="contreparties[]" value="Logo_voiles"> Logo sur voiles</label>
+        <label><input type="checkbox" name="contreparties[]" value="Presse"> Mentions presse</label>
+        <label><input type="checkbox" name="contreparties[]" value="Reseaux_sociaux"> Réseaux sociaux</label>
+        <label><input type="checkbox" name="contreparties[]" value="Soiree_sponsor"> Soirée sponsor</label>
+        <label><input type="checkbox" name="contreparties[]" value="Sortie_bateau"> Sortie bateau</label>
+        <label><input type="checkbox" name="contreparties[]" value="Autre"> Autre</label>
+        <input type="text" name="contreparties_autre" placeholder="Préciser si 'Autre'">
+      </div>
+
+      <div class="row">
+        <label>15.1. Détail du budget par postes (CHF) :</label>
+        <label>Voiles : <input type="number" name="budget_voiles" min="0" step="1" inputmode="numeric"></label>
+        <label>Décoration : <input type="number" name="budget_decoration" min="0" step="1" inputmode="numeric"></label>
+        <label>Équipement technique : <input type="number" name="budget_equipement" min="0" step="1" inputmode="numeric"></label>
+        <label>Logistique / transport : <input type="number" name="budget_logistique" min="0" step="1" inputmode="numeric"></label>
+        <label>Inscriptions : <input type="number" name="budget_inscriptions" min="0" step="1" inputmode="numeric"></label>
+        <label>Divers : <input type="number" name="budget_divers" min="0" step="1" inputmode="numeric"></label>
+      </div>
+    </fieldset>
+
+    <!-- Bloc 4 – Ancrage & Réseau -->
+    <fieldset>
+      <legend>🌐 Bloc 4 – Ancrage & Réseau</legend>
+
+      <div class="row">
+        <label>16. rôle du club La Matelotte dans ton projet :</label>
+        <textarea name="role_club" rows="3"></textarea>
+      </div>
+
+      <div class="row">
+        <label>17. Soutiens déjà disponibles :</label>
+        <label><input type="checkbox" name="soutiens[]" value="Amis_navigateurs"> Amis navigateurs</label>
+        <label><input type="checkbox" name="soutiens[]" value="Mecenes"> Mécènes</label>
+        <label><input type="checkbox" name="soutiens[]" value="Medias_locaux"> Médias locaux</label>
+        <label><input type="checkbox" name="soutiens[]" value="Autre"> Autre</label>
+        <input type="text" name="soutiens_autre" placeholder="Préciser si 'Autre'">
+      </div>
+
+      <div class="row">
+        <label>Noms / contacts utiles :</label>
+        <textarea name="soutiens_contacts" rows="3" placeholder="Noms, coordonnées, lien avec le projet"></textarea>
+      </div>
+
+      <div class="row">
+        <label>18. Ambition géographique :</label>
+        <label><input type="radio" name="ambition_geo" value="Regionale"> Régionale (lac de Neuchâtel, Romandie)</label>
+        <label><input type="radio" name="ambition_geo" value="Nationale"> Nationale (Suisse)</label>
+        <label><input type="radio" name="ambition_geo" value="Internationale"> Internationale</label>
+      </div>
+
+      <div class="row">
+        <label>18.1. Si 'Internationale' : quels événements/circuits vises-tu ?</label>
+        <textarea name="evenements_internationaux" rows="2"></textarea>
+      </div>
+    </fieldset>
+
+    <!-- Bloc 5 – Storytelling & Image -->
+    <fieldset>
+      <legend>🔥 Bloc 5 – Storytelling & Image</legend>
+
+      <div class="row">
+        <label>19. Ton histoire personnelle avec la voile (ce qui doit être raconté) :</label>
+        <textarea name="histoire_personnelle" rows="4"></textarea>
+      </div>
+
+      <div class="row">
+        <label>20. Anecdote forte ou moment marquant qui te représente :</label>
+        <textarea name="anecdote_forte" rows="4"></textarea>
+      </div>
+
+      <div class="row">
+        <label>21. Émotion principale à transmettre :</label>
+        <label><input type="radio" name="emotion" value="Adrenaline"> Adrénaline du départ</label>
+        <label><input type="radio" name="emotion" value="Esprit_equipe"> Esprit d’équipe</label>
+        <label><input type="radio" name="emotion" value="Depassement"> Dépassement de soi</label>
+        <label><input type="radio" name="emotion" value="Liberte"> Liberté en mer</label>
+        <label><input type="radio" name="emotion" value="Autre"> Autre</label>
+        <input type="text" name="emotion_autre" placeholder="Décris l'émotion si 'Autre'">
+      </div>
+
+      <div class="row">
+        <label>22. Slogan / phrase inspirante (1 phrase) :</label>
+        <textarea name="slogan" rows="2" placeholder="Une phrase forte, 10–15 mots"></textarea>
+      </div>
+    </fieldset>
+
+    <div class="row">
+      <input type="submit" value="Envoyer le questionnaire">
+    </div>
+  </form>
+
+  <p class="small">Les réponses serviront à structurer le projet, le dossier sponsor et le pitch.</p>
+</body>
+</html>
