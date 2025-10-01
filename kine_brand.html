@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Formulaire – Recherche de nom</title>
+  <style>
+    :root {
+      --bg:#faf9fb;
+      --card:#ffffff;
+      --ink:#0f172a;
+      --muted:#64748b;
+      --pri:#5fb3b3;
+      --pri-weak:#e7f6f6;
+      --acc:#f5a3b7;
+      --acc-weak:#fdebf1;
+      --ok:#86efac;
+      --warn:#fde68a;
+      --err:#fca5a5;
+      --radius:12px;
+    }
+    body {
+      margin:0;
+      font-family: system-ui, sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+      line-height:1.6;
+    }
+    .wrap {
+      max-width:720px;
+      margin:2rem auto;
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:2rem;
+      box-shadow:0 2px 8px rgba(0,0,0,0.06);
+    }
+    h1 {
+      font-size:1.6rem;
+      margin-bottom:1rem;
+      color:var(--ink);
+    }
+    h2 {
+      font-size:1.2rem;
+      margin-top:1.5rem;
+      margin-bottom:0.5rem;
+      color:var(--muted);
+    }
+    label {
+      display:block;
+      margin:0.4rem 0;
+      cursor:pointer;
+    }
+    input[type="text"], textarea {
+      width:100%;
+      padding:.6rem;
+      border:1px solid #ccc;
+      border-radius:var(--radius);
+      margin-top:.2rem;
+      font-size:0.95rem;
+    }
+    textarea {
+      min-height:80px;
+      resize:vertical;
+    }
+    input[type="checkbox"], input[type="radio"] {
+      margin-right:.4rem;
+      accent-color:var(--pri);
+    }
+    button {
+      background:var(--pri);
+      color:#fff;
+      border:none;
+      border-radius:var(--radius);
+      padding:.8rem 1.5rem;
+      margin-top:1.5rem;
+      font-size:1rem;
+      cursor:pointer;
+    }
+    button:hover {
+      background:#4aa0a0;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>🎯 Formulaire – Recherche de nom pour votre activité</h1>
+    <p><strong>Objectif :</strong> clarifier vos préférences et inspirations afin de trouver un nom unique et aligné avec votre identité.</p>
+
+    <form action="https://formspree.io/f/xyznjglb" method="POST">
+
+      <h2>1. Vision et identité</h2>
+      <label>Quelles sont les valeurs principales que vous souhaitez transmettre ?</label>
+      <label><input type="checkbox" name="Valeurs[]" value="Liberté">Liberté</label>
+      <label><input type="checkbox" name="Valeurs[]" value="Apaisement">Apaisement</label>
+      <label><input type="checkbox" name="Valeurs[]" value="Énergie">Énergie</label>
+      <label><input type="checkbox" name="Valeurs[]" value="Transformation">Transformation</label>
+      <label>Autre : <input type="text" name="Valeurs_Autre"></label>
+
+      <label>Quelle émotion souhaitez-vous que vos clients ressentent ?</label>
+      <label><input type="checkbox" name="Émotions[]" value="Confiance">Confiance</label>
+      <label><input type="checkbox" name="Émotions[]" value="Sérénité">Sérénité</label>
+      <label><input type="checkbox" name="Émotions[]" value="Dynamisme">Dynamisme</label>
+      <label><input type="checkbox" name="Émotions[]" value="Inspiration">Inspiration</label>
+      <label>Autre : <input type="text" name="Émotions_Autre"></label>
+
+      <label>Si votre activité était une image ou une métaphore :</label>
+      <label><input type="checkbox" name="Métaphore[]" value="Arbre">Un arbre</label>
+      <label><input type="checkbox" name="Métaphore[]" value="Papillon">Un papillon</label>
+      <label><input type="checkbox" name="Métaphore[]" value="Rivière">Une rivière</label>
+      <label><input type="checkbox" name="Métaphore[]" value="Étoile">Une étoile</label>
+      <label>Autre : <input type="text" name="Métaphore_Autre"></label>
+
+      <h2>2. Style et tonalité (choix unique)</h2>
+      <label><input type="radio" name="Style" value="Poétique et imagé">Poétique et imagé</label>
+      <label><input type="radio" name="Style" value="Sobre et professionnel">Sobre et professionnel</label>
+      <label><input type="radio" name="Style" value="Spirituel et symbolique">Spirituel et symbolique</label>
+      <label><input type="radio" name="Style" value="Dynamique et moderne">Dynamique et moderne</label>
+
+      <label>Langue du nom :</label>
+      <label><input type="radio" name="Langue" value="Français uniquement">Français uniquement</label>
+      <label><input type="radio" name="Langue" value="Français + mot anglais connu">Français avec possibilité d’un mot anglais connu</label>
+
+      <h2>3. Cibles et perception</h2>
+      <label>Vos clients principaux sont surtout :</label>
+      <label><input type="checkbox" name="Cibles[]" value="Adultes">Adultes en quête d’équilibre</label>
+      <label><input type="checkbox" name="Cibles[]" value="Parents">Parents d’enfants stressés</label>
+      <label><input type="checkbox" name="Cibles[]" value="Sportifs">Sportifs</label>
+      <label>Autre : <input type="text" name="Cibles_Autre"></label>
+
+      <label>Pour eux, un nom devrait surtout évoquer (choix unique) :</label>
+      <label><input type="radio" name="Perception" value="Confiance">La confiance et le sérieux</label>
+      <label><input type="radio" name="Perception" value="Voyage">Le voyage intérieur et la transformation</label>
+      <label><input type="radio" name="Perception" value="Légèreté">La légèreté et la liberté</label>
+      <label><input type="radio" name="Perception" value="Autre">Autre</label>
+
+      <h2>4. Contraintes pratiques</h2>
+      <label>Taille du nom :</label>
+      <label><input type="checkbox" name="Taille[]" value="Court">Court (1–2 mots)</label>
+      <label><input type="checkbox" name="Taille[]" value="Long">Plus long (3–4 mots)</label>
+
+      <label>Mots interdits :</label>
+      <textarea name="Mots_interdits"></textarea>
+
+      <h2>5. Inspirations</h2>
+      <label>Livres, citations, chansons ou symboles qui vous inspirent :</label>
+      <textarea name="Inspirations"></textarea>
+
+      <label>Parmi vos symboles préférés, lequel doit être au centre du futur nom ?</label>
+      <label><input type="checkbox" name="Symbole[]" value="Pissenlit">Pissenlit</label>
+      <label><input type="checkbox" name="Symbole[]" value="Papillon">Papillon</label>
+      <label><input type="checkbox" name="Symbole[]" value="Fleur">Fleur</label>
+      <label><input type="checkbox" name="Symbole[]" value="Cœur">Cœur</label>
+
+      <label>Noms d’autres praticiens que vous trouvez réussis ou à éviter :</label>
+      <textarea name="Noms_autres"></textarea>
+
+      <button type="submit">Envoyer</button>
+    </form>
+  </div>
+</body>
+</html>
