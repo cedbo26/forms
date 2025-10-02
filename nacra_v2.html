@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Survey #2 – Projet Régate Olivier</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.5;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    h2 {
+      background: #004080;
+      color: #fff;
+      padding: 10px;
+      border-radius: 6px;
+      margin-top: 30px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 6px;
+      margin-top: 4px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    .btn {
+      background: #004080;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      margin-top: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #0066cc;
+    }
+    .regate-block {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 15px;
+      margin-bottom: 15px;
+      background: #fafafa;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Survey #2 – Projet Régate Olivier</h1>
+
+  <form action="https://formspree.io/f/mjkarabe" method="POST">
+
+    <!-- Question 1 -->
+    <h2>1) Régate(s) prioritaire(s) 2026</h2>
+    <div id="regates-container">
+      <div class="regate-block">
+        <label>Nom de l’épreuve</label>
+        <input type="text" name="regate_nom[]">
+
+        <label>Lieu / Plan d’eau</label>
+        <input type="text" name="regate_lieu[]">
+
+        <label>Date</label>
+        <input type="date" name="regate_date[]">
+
+        <label>Objectif de résultat</label>
+        <select name="regate_objectif[]">
+          <option>Podium</option>
+          <option>Top-5</option>
+          <option>Top-10</option>
+          <option>Temps réel</option>
+          <option>Finisher performant</option>
+          <option>Autre</option>
+        </select>
+
+        <label>Jalons d’entraînement</label>
+        <textarea name="regate_jalons[]" placeholder="Ex: 3 sessions vitesse, 2 régates préparatoires…"></textarea>
+      </div>
+    </div>
+    <button type="button" class="btn" onclick="ajouterRegate()">+ Ajouter une régate</button>
+
+    <!-- Question 2 -->
+    <h2>2) Calendrier 12 mois</h2>
+    <div class="card">
+      <label>Épreuves cibles (6–8)</label>
+      <textarea name="calendrier_epreuves" placeholder="Nom | Date | Priorité | Contrainte | Objectif"></textarea>
+
+      <label>Fenêtres logistiques clés</label>
+      <textarea name="calendrier_fenetres" placeholder="Maintenance, convoyage, congés, météo…"></textarea>
+    </div>
+
+    <!-- Question 3 -->
+    <h2>3) Plan média</h2>
+    <div class="card">
+      <label>Types de contenus prévus</label>
+      <input type="checkbox" name="media_contenu[]" value="Photos"> Photos action<br>
+      <input type="checkbox" name="media_contenu[]" value="Vidéos"> Vidéos onboard<br>
+      <input type="checkbox" name="media_contenu[]" value="Drone"> Drone<br>
+      <input type="checkbox" name="media_contenu[]" value="Interviews"> Interviews<br>
+      <input type="checkbox" name="media_contenu[]" value="Stories"> Stories / Reels<br>
+      <input type="checkbox" name="media_contenu[]" value="Long-form"> Long-form
+
+      <label>Qui réalise quoi ?</label>
+      <textarea name="media_roles" placeholder="Personne/Agence | Rôle | Jours | Coût estimé"></textarea>
+
+      <label>Budget contenu (CHF)</label>
+      <input type="number" name="media_budget">
+
+      <label>Droits et usages convenus ?</label>
+      <select name="media_droits" id="media_droits" onchange="toggleDroits()">
+        <option value="Non">Non</option>
+        <option value="Oui">Oui</option>
+        <option value="A definir">À définir</option>
+      </select>
+
+      <div id="droits_details" class="hidden">
+        <label>Périmètre d’usage</label>
+        <input type="text" name="media_perimetre">
+
+        <label>Durée</label>
+        <input type="text" name="media_duree">
+
+        <label>Territoires</label>
+        <input type="text" name="media_territoires">
+      </div>
+    </div>
+
+    <!-- Question 4 -->
+    <h2>4) Budget complet</h2>
+    <div class="card">
+      <label>Lignes à ajouter</label>
+      <textarea name="budget_lignes" placeholder="Décoration, équipement, maintenance…"></textarea>
+
+      <label>Maintenance annuelle (CHF)</label>
+      <input type="number" name="budget_maintenance">
+
+      <label>Déplacements / logistique (CHF)</label>
+      <input type="number" name="budget_deplacements">
+
+      <label>Assurances (CHF)</label>
+      <input type="number" name="budget_assurances">
+
+      <label>Provision imprévus (%)</label>
+      <select name="budget_imprevus">
+        <option>5%</option>
+        <option>8%</option>
+        <option>10%</option>
+        <option>12%</option>
+        <option>Autre</option>
+      </select>
+    </div>
+
+    <!-- Question 5 -->
+    <h2>5) Financement</h2>
+    <div class="card">
+      <label>% du budget déjà couvert</label>
+      <input type="range" min="0" max="100" name="financement_couvert">
+
+      <label>Sources actuelles</label>
+      <textarea name="financement_sources" placeholder="Fonds propres, sponsors confirmés, dons…"></textarea>
+
+      <label>Vente bateau actuel (9 600 CHF)</label>
+      <select name="financement_vente" id="vente_bateau" onchange="toggleVente()">
+        <option value="Non prévu">Non prévu</option>
+        <option value="Vendu">Vendu</option>
+        <option value="En cours">En cours</option>
+        <option value="A mettre">À mettre en vente</option>
+      </select>
+
+      <div id="vente_details" class="hidden">
+        <label>Date cible</label>
+        <input type="date" name="vente_date">
+
+        <label>Canal</label>
+        <input type="text" name="vente_canal">
+      </div>
+    </div>
+
+    <!-- Question 6 -->
+    <h2>6) Sponsors</h2>
+    <div class="card">
+      <label>Liste contacts</label>
+      <textarea name="sponsors_contacts" placeholder="Entreprise | Nom | Rôle | Canal | Date | Message | Statut | Relance"></textarea>
+
+      <label>Messages utilisés</label>
+      <textarea name="sponsors_messages"></textarea>
+
+      <label>Priorités de relance 30 jours</label>
+      <textarea name="sponsors_relances"></textarea>
+    </div>
+
+    <!-- Question 7 -->
+    <h2>7) Activation club</h2>
+    <div class="card">
+      <input type="checkbox" name="club_modalites[]" value="Stockage"> Stockage<br>
+      <input type="checkbox" name="club_modalites[]" value="Soirée sponsor"> Soirée sponsor<br>
+      <input type="checkbox" name="club_modalites[]" value="Prêt matériel"> Prêt matériel<br>
+      <input type="checkbox" name="club_modalites[]" value="Logistique"> Aide logistique<br>
+      <input type="checkbox" name="club_modalites[]" value="Visibilité club"> Visibilité club
+
+      <label>Détails pratiques validés</label>
+      <textarea name="club_details"></textarea>
+
+      <label>Points en négociation</label>
+      <textarea name="club_negociations"></textarea>
+    </div>
+
+    <!-- Question 8 -->
+    <h2>8) Story AI</h2>
+    <div class="card">
+      <label>Inclure un angle AI ?</label>
+      <select name="ai_inclusion" id="ai_inclusion" onchange="toggleAI()">
+        <option value="Non">Non</option>
+        <option value="Oui">Oui</option>
+      </select>
+
+      <div id="ai_details" class="hidden">
+        <label>Périmètre</label>
+        <input type="checkbox" name="ai_perimetre[]" value="Analyse perf"> Analyse perf<br>
+        <input type="checkbox" name="ai_perimetre[]" value="Prépa météo"> Prépa météo<br>
+        <input type="checkbox" name="ai_perimetre[]" value="Debrief vidéo"> Debrief vidéo<br>
+        <input type="checkbox" name="ai_perimetre[]" value="Suivi sponsors"> Suivi sponsors<br>
+        <input type="checkbox" name="ai_perimetre[]" value="A/B testing"> A/B testing contenu<br>
+        <input type="checkbox" name="ai_perimetre[]" value="Autre"> Autre<br>
+
+        <label>Risques perçus / limites</label>
+        <textarea name="ai_risques"></textarea>
+      </div>
+    </div>
+
+    <!-- Question 9 -->
+    <h2>9) KPIs 12–36 mois</h2>
+    <div class="card">
+      <label>Sportifs</label>
+      <textarea name="kpis_sportifs"></textarea>
+
+      <label>Média & reach</label>
+      <textarea name="kpis_media"></textarea>
+
+      <label>Sponsors & activation</label>
+      <textarea name="kpis_sponsors"></textarea>
+    </div>
+
+    <!-- Question 10 -->
+    <h2>10) Slogan</h2>
+    <div class="card">
+      <label>Choix</label>
+      <select name="slogan_choix" id="slogan_choix" onchange="toggleSlogan()">
+        <option value="Performance">Performance</option>
+        <option value="Sécurité">Sécurité</option>
+        <option value="Mix">Mix perf/sécu</option>
+        <option value="A creer">À créer</option>
+      </select>
+
+      <div id="slogan_details" class="hidden">
+        <label>Proposition</label>
+        <input type="text" name="slogan_proposition">
+      </div>
+
+      <label>Ton souhaité</label>
+      <select name="slogan_ton">
+        <option>Sob</option>
+        <option>Ambitieux</option>
+        <option>Technique</option>
+        <option>Inclusif</option>
+        <option>Local</option>
+        <option>International</option>
+      </select>
+    </div>
+
+    <!-- Question 11 -->
+    <h2>11) Annexes</h2>
+    <div class="card">
+      <label>Liens documents utiles</label>
+      <textarea name="annexes_liens"></textarea>
+
+      <label>Commentaires libres</label>
+      <textarea name="annexes_commentaires"></textarea>
+    </div>
+
+    <!-- Submit -->
+    <button type="submit" class="btn">Envoyer</button>
+  </form>
+
+  <script>
+    function ajouterRegate() {
+      const container = document.getElementById('regates-container');
+      const bloc = container.querySelector('.regate-block').cloneNode(true);
+      bloc.querySelectorAll('input, textarea, select').forEach(el => el.value = "");
+      container.appendChild(bloc);
+    }
+    function toggleDroits() {
+      const val = document.getElementById('media_droits').value;
+      document.getElementById('droits_details').classList.toggle('hidden', val !== "Oui");
+    }
+    function toggleVente() {
+      const val = document.getElementById('vente_bateau').value;
+      document.getElementById('vente_details').classList.toggle('hidden', !(val === "En cours" || val === "A mettre"));
+    }
+    function toggleAI() {
+      const val = document.getElementById('ai_inclusion').value;
+      document.getElementById('ai_details').classList.toggle('hidden', val !== "Oui");
+    }
+    function toggleSlogan() {
+      const val = document.getElementById('slogan_choix').value;
+      document.getElementById('slogan_details').classList.toggle('hidden', val !== "A creer");
+    }
+  </script>
+
+</body>
+</html>
