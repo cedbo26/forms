@@ -3,105 +3,81 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Questionnaire Olivier – Équipe Nacra</title>
+<title>Profil Olivier – Nacra SUI-112</title>
 <style>
-  body {
-    font-family: system-ui, sans-serif;
-    background: #f4f6f8;
-    margin: 0;
-    padding: 1.5rem;
-    color: #222;
-  }
-  h1 {
-    text-align: center;
-    color: #1e3a8a;
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-  form {
-    background: #fff;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    max-width: 600px;
-    margin: auto;
-  }
-  label {
-    font-weight: 600;
-    margin-top: 1rem;
-    display: block;
-  }
-  input, textarea, select {
-    width: 100%;
-    margin-top: 0.5rem;
-    padding: 0.7rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-  }
-  textarea {
-    resize: vertical;
-  }
-  .range-label {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-  }
-  button {
-    width: 100%;
-    margin-top: 1.5rem;
-    padding: 0.8rem;
-    background: #2563eb;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-  button:hover {
-    background: #1e40af;
-  }
+  body {font-family: system-ui, sans-serif; background:#f5f6fa; margin:0; padding:1.2rem; color:#111;}
+  h1 {text-align:center; color:#1e3a8a; font-size:1.4rem; margin-bottom:1rem;}
+  form {background:#fff; padding:1rem 1.3rem; border-radius:12px; box-shadow:0 2px 5px rgba(0,0,0,0.1); max-width:480px; margin:auto;}
+  label {display:block; font-weight:600; margin-top:1rem;}
+  select, input[type="number"], textarea {width:100%; padding:0.6rem; border:1px solid #ccc; border-radius:8px; font-size:1rem;}
+  .options {display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:0.4rem;}
+  .options label {font-weight:400; border:1px solid #ccc; border-radius:8px; padding:0.4rem 0.7rem; flex:1 1 45%; text-align:center; cursor:pointer; background:#f8fafc;}
+  input[type="radio"], input[type="checkbox"] {display:none;}
+  input:checked + label {background:#2563eb; color:#fff; border-color:#2563eb;}
+  button {width:100%; margin-top:1.2rem; padding:0.8rem; background:#2563eb; color:#fff; border:none; border-radius:8px; font-size:1rem;}
+  button:hover {background:#1e40af;}
 </style>
 </head>
 <body>
 
-<h1>Questionnaire – Profil d’Olivier</h1>
+<h1>Profil rapide – Olivier</h1>
 
 <form action="https://formspree.io/f/mdkwrzqk" method="POST">
 
-  <label>1. Combien de participations au Bol d’Or environ ?</label>
-  <input type="number" name="bol_dor_participations" placeholder="ex. 25" min="1" required>
-
-  <label>2. Quelle est la meilleure place ou résultat marquant obtenu ?</label>
-  <input type="text" name="bol_dor_resultat" placeholder="ex. 3e en temps réel, 1er de catégorie">
-
-  <label>3. Sur quels types de bateaux as-tu régaté ?</label>
-  <textarea name="types_bateaux" rows="3" placeholder="ex. Nacra F20, Ventilo, Décision 35, Toucan…"></textarea>
-
-  <label>4. Quel est ton rôle principal à bord ?</label>
-  <select name="role">
-    <option value="">-- Sélectionner --</option>
-    <option>Barreur</option>
-    <option>Tacticien</option>
-    <option>Équipier</option>
-    <option>Autre</option>
+  <label>1. Participations au Bol d’Or</label>
+  <select name="bol_dor_participations" required>
+    <option value="">Choisir</option>
+    <option>Moins de 10</option>
+    <option>10–20</option>
+    <option>20–30</option>
+    <option>Plus de 30</option>
   </select>
 
-  <label>5. As-tu participé à d’autres grandes régates ou traversées ?</label>
-  <textarea name="autres_regates" rows="3" placeholder="ex. Traversée de l’Atlantique 2016, Championnat d’Europe Nacra 17…"></textarea>
+  <label>2. Meilleur résultat</label>
+  <div class="options">
+    <input type="radio" id="podium" name="resultat" value="Podium"><label for="podium">Podium</label>
+    <input type="radio" id="top10" name="resultat" value="Top 10"><label for="top10">Top 10</label>
+    <input type="radio" id="finish" name="resultat" value="Finisher régulier"><label for="finish">Finisher</label>
+  </div>
 
-  <label>6. Si tu devais résumer ta philosophie de navigation en quelques mots ?</label>
-  <textarea name="philosophie" rows="3" placeholder="ex. Rigueur, précision, plaisir du vent libre…"></textarea>
+  <label>3. Types de bateaux</label>
+  <div class="options">
+    <input type="checkbox" id="nacra" name="bateaux" value="Nacra F20"><label for="nacra">Nacra F20</label>
+    <input type="checkbox" id="ventilo" name="bateaux" value="Ventilo"><label for="ventilo">Ventilo</label>
+    <input type="checkbox" id="toucan" name="bateaux" value="Toucan"><label for="toucan">Toucan</label>
+    <input type="checkbox" id="autres" name="bateaux" value="Autres"><label for="autres">Autres</label>
+  </div>
 
-  <label>7. Comment décrirais-tu ton binôme avec Pierre ?</label>
-  <textarea name="duo_pierre" rows="3" placeholder="ex. Complémentaire, basé sur la confiance, le respect et la passion…"></textarea>
+  <label>4. Rôle principal</label>
+  <div class="options">
+    <input type="radio" id="barreur" name="role" value="Barreur"><label for="barreur">Barreur</label>
+    <input type="radio" id="tacticien" name="role" value="Tacticien"><label for="tacticien">Tacticien</label>
+    <input type="radio" id="equipier" name="role" value="Équipier"><label for="equipier">Équipier</label>
+  </div>
 
-  <label>8. Souhaites-tu ajouter une anecdote ou un souvenir marquant ?</label>
-  <textarea name="anecdote" rows="3" placeholder="ex. Un moment fort en régate ou en mer…"></textarea>
+  <label>5. Autres expériences</label>
+  <div class="options">
+    <input type="checkbox" id="atlantique" name="autres" value="Traversée de l’Atlantique"><label for="atlantique">Atlantique</label>
+    <input type="checkbox" id="europa" name="autres" value="Championnats Europe"><label for="europa">Europe</label>
+    <input type="checkbox" id="autres_regates" name="autres" value="Autres régates"><label for="autres_regates">Autres</label>
+  </div>
 
-  <label>9. Niveau d’engagement pour la saison 2026</label>
-  <div class="range-label"><span>0%</span><span>100%</span></div>
-  <input type="range" name="engagement" min="0" max="100" step="5">
+  <label>6. Style de navigation</label>
+  <div class="options">
+    <input type="radio" id="precis" name="style" value="Précis et calme"><label for="precis">Précis</label>
+    <input type="radio" id="agressif" name="style" value="Agressif et rapide"><label for="agressif">Agressif</label>
+    <input type="radio" id="endurant" name="style" value="Endurant et constant"><label for="endurant">Endurant</label>
+  </div>
+
+  <label>7. Duo avec Pierre</label>
+  <div class="options">
+    <input type="radio" id="complementaire" name="duo" value="Complémentaire"><label for="complementaire">Complémentaire</label>
+    <input type="radio" id="fusion" name="duo" value="Fusionnel"><label for="fusion">Fusionnel</label>
+    <input type="radio" id="strategique" name="duo" value="Stratégique"><label for="strategique">Stratégique</label>
+  </div>
+
+  <label>8. Anecdote ou souvenir (optionnel)</label>
+  <textarea name="anecdote" rows="2" placeholder="Un moment fort…"></textarea>
 
   <button type="submit">Envoyer</button>
 </form>
