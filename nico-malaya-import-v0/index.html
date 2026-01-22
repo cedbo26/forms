@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nico Malaya — Import v0</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <p class="eyebrow">Début de projet</p>
+      <h1>Import v0 — Nico Malaya</h1>
+      <p class="lead">Formulaire simple pour cadrer les produits, réseaux et capacité opérationnelle.</p>
+      <div class="alert" role="alert">
+        Si tu ne sais pas, écris “je ne sais pas”.
+      </div>
+    </header>
+
+    <form class="form" action="https://formspree.io/f/xykkrkey" method="POST">
+      <input type="hidden" name="form_name" value="nico-malaya-import-v0" />
+      <input type="hidden" name="form_version" value="v0_2026-01-22" />
+      <input type="hidden" name="form_locale" value="fr" />
+      <input type="hidden" name="_redirect" value="./thank-you.html" />
+
+      <section class="section" id="produits">
+        <div class="section-head">
+          <h2>1) Produits</h2>
+          <p>Ajoute un ou plusieurs produits cibles.</p>
+        </div>
+
+        <div id="products-list" class="stack"></div>
+        <button type="button" class="btn ghost" id="add-product">+ Ajouter un produit</button>
+      </section>
+
+      <section class="section" id="reseaux">
+        <div class="section-head">
+          <h2>2) Réseaux activables rapidement</h2>
+          <p>Canaux et contacts à activer en priorité.</p>
+        </div>
+
+        <fieldset class="card">
+          <legend>Canaux</legend>
+          <div class="grid check-grid">
+            <label><input type="checkbox" name="channels[]" value="magasins_du_monde" /> Magasins du monde</label>
+            <label><input type="checkbox" name="channels[]" value="epiceries_locales" /> Épiceries locales</label>
+            <label><input type="checkbox" name="channels[]" value="restos" /> Restos</label>
+            <label><input type="checkbox" name="channels[]" value="marches" /> Marchés</label>
+            <label><input type="checkbox" name="channels[]" value="en_ligne_modeste" /> En ligne (modeste)</label>
+            <label><input type="checkbox" name="channels[]" value="cadeaux_entreprises" /> Cadeaux entreprises</label>
+            <label class="inline"><input type="checkbox" name="channels[]" value="autre" /> Autre</label>
+            <input type="text" name="channels_other" placeholder="Précise l'autre canal" />
+          </div>
+        </fieldset>
+
+        <div class="stack" id="contacts-list"></div>
+        <button type="button" class="btn ghost" id="add-contact">+ Ajouter un contact</button>
+      </section>
+
+      <section class="section" id="capacite">
+        <div class="section-head">
+          <h2>3) Capacité opérationnelle</h2>
+          <p>Disponibilité, rôle, stockage.</p>
+        </div>
+
+        <div class="grid two">
+          <label>
+            Date d’arrivée épouse (optionnel)
+            <input type="date" name="wife_arrival_date" />
+          </label>
+          <label>
+            Ville en Suisse
+            <input type="text" name="wife_city_ch" placeholder="Ex: Lausanne" />
+          </label>
+        </div>
+
+        <fieldset class="card">
+          <legend>Rôles</legend>
+          <div class="grid check-grid">
+            <label><input type="checkbox" name="roles[]" value="sourcing_nepal" /> Sourcing Népal</label>
+            <label><input type="checkbox" name="roles[]" value="vente_ch" /> Vente CH</label>
+            <label><input type="checkbox" name="roles[]" value="logistique" /> Logistique</label>
+            <label><input type="checkbox" name="roles[]" value="admin" /> Admin</label>
+            <label><input type="checkbox" name="roles[]" value="ecommerce" /> E-commerce</label>
+          </div>
+        </fieldset>
+
+        <div class="grid two">
+          <label>
+            Temps dispo / semaine
+            <select name="time_available_week">
+              <option value="">Choisir</option>
+              <option value="lt_2h">&lt;2h</option>
+              <option value="2_5h">2-5h</option>
+              <option value="5_10h">5-10h</option>
+              <option value="10h_plus">10h+</option>
+            </select>
+          </label>
+
+          <label>
+            Solution de stockage
+            <select name="storage_solution" id="storage-solution">
+              <option value="">Choisir</option>
+              <option value="domicile">Domicile</option>
+              <option value="partenaire">Partenaire</option>
+              <option value="garage">Garage</option>
+              <option value="3pl">3PL</option>
+              <option value="autre">Autre</option>
+            </select>
+          </label>
+        </div>
+
+        <label>
+          Stockage autre (si besoin)
+          <input type="text" name="storage_solution_other" placeholder="Préciser" />
+        </label>
+
+        <label>
+          Capacité de stockage
+          <input type="text" name="storage_capacity" placeholder="Ex: 2m², 10 cartons" />
+        </label>
+      </section>
+
+      <section class="section" id="trek">
+        <div class="section-head">
+          <h2>4) Trek (phase 2)</h2>
+          <p>Intérêt rapide pour la suite.</p>
+        </div>
+
+        <fieldset class="card">
+          <legend>Intérêt</legend>
+          <div class="grid check-grid">
+            <label><input type="radio" name="trek_interest" value="yes" /> Oui</label>
+            <label><input type="radio" name="trek_interest" value="no" /> Non</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="card">
+          <legend>Fenêtres possibles</legend>
+          <div class="grid check-grid">
+            <label><input type="checkbox" name="trek_windows[]" value="printemps_mars_mai" /> Printemps (mars-mai)</label>
+            <label><input type="checkbox" name="trek_windows[]" value="automne_oct_nov" /> Automne (oct-nov)</label>
+            <label><input type="checkbox" name="trek_windows[]" value="debut_decembre_option" /> Début décembre (option)</label>
+          </div>
+        </fieldset>
+
+        <label>
+          Notes trek
+          <textarea name="trek_notes" rows="4" placeholder="Type de trek, taille groupe, niveau, 1-2/an ?"></textarea>
+        </label>
+      </section>
+
+      <footer class="form-footer">
+        <button class="btn primary" type="submit">Envoyer le formulaire</button>
+        <p class="helper">Merci ! Une fois envoyé, tu seras redirigé vers la page de confirmation.</p>
+      </footer>
+    </form>
+  </main>
+
+  <template id="product-template">
+    <article class="card product" data-index="__index__">
+      <header class="card-head">
+        <h3>Produit <span class="product-number">__number__</span></h3>
+        <button type="button" class="btn mini danger remove-product">Supprimer</button>
+      </header>
+      <div class="grid two">
+        <label>
+          Nom du produit
+          <input type="text" name="products[__index__][name]" required />
+        </label>
+        <label>
+          Catégorie
+          <select name="products[__index__][category]" required>
+            <option value="">Choisir</option>
+            <option value="the">Thé</option>
+            <option value="cafe">Café</option>
+            <option value="epices">Épices</option>
+            <option value="autre">Autre</option>
+          </select>
+        </label>
+      </div>
+      <div class="grid two">
+        <label>
+          Format
+          <input type="text" name="products[__index__][format]" />
+        </label>
+        <label>
+          Poids (g)
+          <input type="number" name="products[__index__][weight_g]" min="0" step="1" />
+        </label>
+      </div>
+      <div class="grid two">
+        <label>
+          Prix d'achat
+          <input type="number" name="products[__index__][buy_price]" min="0" step="0.01" required />
+        </label>
+        <label>
+          Devise achat
+          <select name="products[__index__][buy_currency]" required>
+            <option value="">Choisir</option>
+            <option value="NPR">NPR</option>
+            <option value="CHF">CHF</option>
+          </select>
+        </label>
+      </div>
+      <div class="grid two">
+        <label>
+          MOQ
+          <input type="text" name="products[__index__][moq]" />
+        </label>
+        <label>
+          Prix de vente cible (CHF)
+          <input type="number" name="products[__index__][sell_price_target_chf]" min="0" step="0.01" />
+        </label>
+      </div>
+      <label>
+        Notes
+        <textarea name="products[__index__][notes]" rows="3"></textarea>
+      </label>
+    </article>
+  </template>
+
+  <template id="contact-template">
+    <article class="card contact" data-index="__index__">
+      <header class="card-head">
+        <h3>Contact <span class="contact-number">__number__</span></h3>
+        <button type="button" class="btn mini danger remove-contact">Supprimer</button>
+      </header>
+      <div class="grid two">
+        <label>
+          Nom
+          <input type="text" name="contacts[__index__][name]" />
+        </label>
+        <label>
+          Organisation
+          <input type="text" name="contacts[__index__][org]" />
+        </label>
+      </div>
+      <div class="grid two">
+        <label>
+          Ville
+          <input type="text" name="contacts[__index__][city]" />
+        </label>
+        <label>
+          Type
+          <select name="contacts[__index__][type]">
+            <option value="">Choisir</option>
+            <option value="epicerie">Épicerie</option>
+            <option value="resto">Resto</option>
+            <option value="asso">Asso</option>
+            <option value="distributeur">Distributeur</option>
+            <option value="ami">Ami</option>
+            <option value="famille">Famille</option>
+            <option value="autre">Autre</option>
+          </select>
+        </label>
+      </div>
+      <div class="grid two">
+        <label>
+          Contact (tel/mail)
+          <input type="text" name="contacts[__index__][contact]" />
+        </label>
+        <label>
+          Priorité
+          <select name="contacts[__index__][priority]">
+            <option value="">Choisir</option>
+            <option value="chaud">Chaud</option>
+            <option value="tiede">Tiède</option>
+            <option value="froid">Froid</option>
+          </select>
+        </label>
+      </div>
+      <label>
+        Notes
+        <input type="text" name="contacts[__index__][notes]" />
+      </label>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
