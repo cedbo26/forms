@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Questionnaire Nico’Malaya — Pivot Import</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <p class="eyebrow">Questionnaire</p>
+      <h1>Questionnaire Nico’Malaya — lot test import (10–15 min)</h1>
+      <p class="callout">Si tu ne sais pas: indique «&nbsp;je ne sais pas&nbsp;» plutôt que d’inventer.</p>
+      <div class="progress" aria-live="polite">
+        <span id="progressText">Étape 1/3 — BLOQUANTES</span>
+        <div class="progress-bar" aria-hidden="true">
+          <span id="progressFill"></span>
+        </div>
+      </div>
+    </header>
+
+    <form id="wizardForm" action="https://formspree.io/f/xykkrkey" method="POST" enctype="multipart/form-data" novalidate>
+      <input type="hidden" name="form_version" value="v1_2026-01-22" />
+      <input type="hidden" name="form_locale" value="fr" />
+      <input type="hidden" name="wizard_completed_step" id="wizardCompletedStep" value="1" />
+      <input type="hidden" name="_redirect" value="thank-you.html" />
+
+      <div id="formErrors" class="form-errors" role="status" aria-live="polite"></div>
+
+      <section class="step" data-step="1">
+        <fieldset>
+          <legend>BLOQUANTES</legend>
+
+          <div class="field">
+            <label for="project_name">Nom du projet (optionnel)</label>
+            <input id="project_name" name="project_name" type="text" autocomplete="organization" />
+          </div>
+
+          <div class="field">
+            <label for="swiss_base">Base suisse</label>
+            <select id="swiss_base" name="swiss_base" required>
+              <option value="">Sélectionner…</option>
+              <option value="lausanne">Lausanne</option>
+              <option value="geneve">Genève</option>
+              <option value="autre">Autre</option>
+            </select>
+          </div>
+
+          <div class="field conditional" data-show-when="swiss_base:autre">
+            <label for="swiss_base_other">Si autre, préciser</label>
+            <input id="swiss_base_other" name="swiss_base_other" type="text" />
+          </div>
+
+          <div class="field">
+            <label for="target_date_first_lot">Date cible du premier lot (optionnel)</label>
+            <input id="target_date_first_lot" name="target_date_first_lot" type="date" />
+          </div>
+
+          <div class="field">
+            <label for="product_category">Catégorie produit</label>
+            <select id="product_category" name="product_category" required>
+              <option value="">Sélectionner…</option>
+              <option value="the">Thé</option>
+              <option value="cafe">Café</option>
+              <option value="epices">Épices</option>
+              <option value="autre">Autre</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="product_name_details">Nom produit / détails</label>
+            <textarea id="product_name_details" name="product_name_details" rows="3" required></textarea>
+          </div>
+
+          <fieldset class="field">
+            <legend>Formats produits</legend>
+            <div class="choices">
+              <label><input type="checkbox" name="product_formats[]" value="vrac" /> Vrac</label>
+              <label><input type="checkbox" name="product_formats[]" value="sachets" /> Sachets</label>
+              <label><input type="checkbox" name="product_formats[]" value="boites" /> Boîtes</label>
+              <label><input type="checkbox" name="product_formats[]" value="pots" /> Pots</label>
+              <label><input type="checkbox" name="product_formats[]" value="autre" /> Autre</label>
+            </div>
+          </fieldset>
+
+          <div class="field conditional" data-show-when="product_formats[]:autre">
+            <label for="product_formats_other">Si autre, préciser</label>
+            <input id="product_formats_other" name="product_formats_other" type="text" />
+          </div>
+
+          <div class="field">
+            <label for="unit_weight_g">Poids unitaire (g)</label>
+            <input id="unit_weight_g" name="unit_weight_g" type="number" min="0" step="0.01" required />
+          </div>
+
+          <div class="field">
+            <label for="test_quantity_units">Quantité test (unités)</label>
+            <input id="test_quantity_units" name="test_quantity_units" type="number" min="0" step="1" required />
+          </div>
+
+          <div class="field">
+            <label for="supplier_name_location">Nom + localisation fournisseur</label>
+            <input id="supplier_name_location" name="supplier_name_location" type="text" required />
+          </div>
+
+          <div class="field">
+            <label for="supplier_contact">Contact fournisseur</label>
+            <input id="supplier_contact" name="supplier_contact" type="text" required />
+          </div>
+
+          <fieldset class="field">
+            <legend>Documents fournisseurs disponibles</legend>
+            <div class="choices">
+              <label><input type="checkbox" name="supplier_docs[]" value="facture_proforma" /> Facture / Proforma</label>
+              <label><input type="checkbox" name="supplier_docs[]" value="fiche_technique" /> Fiche technique</label>
+              <label><input type="checkbox" name="supplier_docs[]" value="certificat_analyse" /> Certificat d’analyse</label>
+              <label><input type="checkbox" name="supplier_docs[]" value="certificat_origine" /> Certificat d’origine</label>
+              <label><input type="checkbox" name="supplier_docs[]" value="autre" /> Autre</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>Preuves disponibles (optionnel)</legend>
+            <div class="choices">
+              <label><input type="checkbox" name="proofs_available[]" value="analyses" /> Analyses labo</label>
+              <label><input type="checkbox" name="proofs_available[]" value="certifications" /> Certifications</label>
+              <label><input type="checkbox" name="proofs_available[]" value="audits" /> Audits</label>
+              <label><input type="checkbox" name="proofs_available[]" value="autre" /> Autre</label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="proof_files">Fichiers de preuves (optionnel)</label>
+            <input id="proof_files" name="proof_files" type="file" multiple />
+          </div>
+
+          <fieldset class="field">
+            <legend>Traçabilité par lot possible ?</legend>
+            <div class="choices">
+              <label><input type="radio" name="lot_traceability_possible" value="oui" required /> Oui</label>
+              <label><input type="radio" name="lot_traceability_possible" value="non" required /> Non</label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="lot_traceability_comment">Commentaire traçabilité (optionnel)</label>
+            <textarea id="lot_traceability_comment" name="lot_traceability_comment" rows="2"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="importer_name">Nom importateur</label>
+            <input id="importer_name" name="importer_name" type="text" required />
+          </div>
+
+          <div class="field">
+            <label for="importer_address">Adresse importateur</label>
+            <textarea id="importer_address" name="importer_address" rows="3" required></textarea>
+          </div>
+
+          <fieldset class="field">
+            <legend>Langues étiquette</legend>
+            <div class="choices">
+              <label><input type="checkbox" name="label_languages[]" value="fr" /> FR</label>
+              <label><input type="checkbox" name="label_languages[]" value="de" /> DE</label>
+              <label><input type="checkbox" name="label_languages[]" value="it" /> IT</label>
+              <label><input type="checkbox" name="label_languages[]" value="en" /> EN</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>Allégations souhaitées (optionnel)</legend>
+            <div class="choices">
+              <label><input type="checkbox" name="desired_claims[]" value="bio" /> Bio</label>
+              <label><input type="checkbox" name="desired_claims[]" value="equitable" /> Commerce équitable</label>
+              <label><input type="checkbox" name="desired_claims[]" value="sans_additifs" /> Sans additifs</label>
+              <label><input type="checkbox" name="desired_claims[]" value="vegan" /> Vegan</label>
+              <label><input type="checkbox" name="desired_claims[]" value="autre" /> Autre</label>
+            </div>
+          </fieldset>
+
+          <div class="field conditional" data-show-when="desired_claims[]:autre">
+            <label for="desired_claims_other">Si autre, préciser</label>
+            <input id="desired_claims_other" name="desired_claims_other" type="text" />
+          </div>
+
+          <div class="field conditional" data-show-when="desired_claims[]:*">
+            <label for="claims_proof_text">Preuves pour les allégations</label>
+            <textarea id="claims_proof_text" name="claims_proof_text" rows="3"></textarea>
+          </div>
+
+          <fieldset class="field">
+            <legend>Canal principal</legend>
+            <div class="choices">
+              <label><input type="radio" name="primary_channel" value="epiceries" required /> Épiceries</label>
+              <label><input type="radio" name="primary_channel" value="restaurants" required /> Restaurants</label>
+              <label><input type="radio" name="primary_channel" value="vente_directe" required /> Vente directe</label>
+              <label><input type="radio" name="primary_channel" value="ecommerce" required /> E-commerce</label>
+              <label><input type="radio" name="primary_channel" value="cadeaux" required /> Cadeaux</label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="prospects_1">Prospects / clients potentiels (1)</label>
+            <textarea id="prospects_1" name="prospects_1" rows="2"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="prospects_2">Prospects / clients potentiels (2) (optionnel)</label>
+            <textarea id="prospects_2" name="prospects_2" rows="2"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="prospects_3">Prospects / clients potentiels (3) (optionnel)</label>
+            <textarea id="prospects_3" name="prospects_3" rows="2"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="budget_max_chf">Budget max (CHF)</label>
+            <input id="budget_max_chf" name="budget_max_chf" type="number" min="0" step="0.01" required />
+          </div>
+
+          <fieldset class="field">
+            <legend>Incoterm</legend>
+            <div class="choices">
+              <label><input type="radio" name="incoterm" value="exw" required /> EXW</label>
+              <label><input type="radio" name="incoterm" value="fob" required /> FOB</label>
+              <label><input type="radio" name="incoterm" value="cif" required /> CIF</label>
+              <label><input type="radio" name="incoterm" value="ddp" required /> DDP</label>
+              <label><input type="radio" name="incoterm" value="je_ne_sais_pas" required /> Je ne sais pas</label>
+            </div>
+          </fieldset>
+        </fieldset>
+      </section>
+
+      <section class="step" data-step="2" hidden>
+        <fieldset>
+          <legend>IMPORTANTES</legend>
+
+          <div class="field">
+            <label for="moq_details">MOQ / quantités minimales (optionnel)</label>
+            <textarea id="moq_details" name="moq_details" rows="2"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="lead_times">Lead times (optionnel)</label>
+            <textarea id="lead_times" name="lead_times" rows="2"></textarea>
+          </div>
+
+          <fieldset class="field">
+            <legend>Mode de transport (optionnel)</legend>
+            <div class="choices">
+              <label><input type="radio" name="transport_mode" value="aerien" /> Aérien</label>
+              <label><input type="radio" name="transport_mode" value="maritime" /> Maritime</label>
+              <label><input type="radio" name="transport_mode" value="je_ne_sais_pas" /> Je ne sais pas</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>Packaging final fait où ? (optionnel)</legend>
+            <div class="choices">
+              <label><input type="radio" name="final_packaging_where" value="nepal" /> Népal</label>
+              <label><input type="radio" name="final_packaging_where" value="suisse" /> Suisse</label>
+              <label><input type="radio" name="final_packaging_where" value="je_ne_sais_pas" /> Je ne sais pas</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>Transit / dédouanement géré par un transitaire ? (optionnel)</legend>
+            <div class="choices">
+              <label><input type="radio" name="customs_forwarder" value="oui" /> Oui</label>
+              <label><input type="radio" name="customs_forwarder" value="non" /> Non</label>
+            </div>
+          </fieldset>
+
+          <div class="field conditional" data-show-when="customs_forwarder:oui">
+            <label for="customs_forwarder_details">Si oui, préciser</label>
+            <input id="customs_forwarder_details" name="customs_forwarder_details" type="text" />
+          </div>
+
+          <fieldset class="field">
+            <legend>Solution de stockage en Suisse ? (optionnel)</legend>
+            <div class="choices">
+              <label><input type="radio" name="swiss_storage_solution" value="domicile" /> Domicile</label>
+              <label><input type="radio" name="swiss_storage_solution" value="partenaire" /> Partenaire</label>
+              <label><input type="radio" name="swiss_storage_solution" value="3pl" /> 3PL</label>
+              <label><input type="radio" name="swiss_storage_solution" value="autre" /> Autre</label>
+            </div>
+          </fieldset>
+
+          <div class="field conditional" data-show-when="swiss_storage_solution:autre">
+            <label for="swiss_storage_details">Si autre, préciser</label>
+            <input id="swiss_storage_details" name="swiss_storage_details" type="text" />
+          </div>
+
+          <div class="field">
+            <label for="target_price_b2c">Prix cible B2C (optionnel)</label>
+            <input id="target_price_b2c" name="target_price_b2c" type="number" min="0" step="0.01" />
+          </div>
+
+          <div class="field">
+            <label for="target_price_b2b">Prix cible B2B (optionnel)</label>
+            <input id="target_price_b2b" name="target_price_b2b" type="number" min="0" step="0.01" />
+          </div>
+
+          <div class="field">
+            <label for="pricing_comment">Commentaires pricing (optionnel)</label>
+            <textarea id="pricing_comment" name="pricing_comment" rows="2"></textarea>
+          </div>
+        </fieldset>
+      </section>
+
+      <section class="step" data-step="3" hidden>
+        <fieldset>
+          <legend>À PRÉCISER</legend>
+
+          <div class="field">
+            <label for="brand_name_options">Options de nom de marque (optionnel)</label>
+            <textarea id="brand_name_options" name="brand_name_options" rows="2"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="provable_storytelling">Storytelling prouvable (3 éléments + preuves) (optionnel)</label>
+            <textarea id="provable_storytelling" name="provable_storytelling" rows="3"></textarea>
+          </div>
+
+          <fieldset class="field">
+            <legend>Garder des micro-expériences ? (optionnel)</legend>
+            <div class="choices">
+              <label><input type="radio" name="keep_micro_experiences" value="oui" /> Oui</label>
+              <label><input type="radio" name="keep_micro_experiences" value="non" /> Non</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field conditional" data-show-when="keep_micro_experiences:oui">
+            <legend>Formats micro-expériences (si oui)</legend>
+            <div class="choices">
+              <label><input type="checkbox" name="micro_experience_formats[]" value="degustations" /> Dégustations</label>
+              <label><input type="checkbox" name="micro_experience_formats[]" value="ateliers" /> Ateliers</label>
+              <label><input type="checkbox" name="micro_experience_formats[]" value="popups" /> Pop-ups</label>
+              <label><input type="checkbox" name="micro_experience_formats[]" value="evenements" /> Événements</label>
+              <label><input type="checkbox" name="micro_experience_formats[]" value="autre" /> Autre</label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="biggest_blocker">Plus gros blocage (optionnel)</label>
+            <input id="biggest_blocker" name="biggest_blocker" type="text" />
+          </div>
+
+          <div class="field">
+            <label for="decisions_needed">Décisions à prendre (optionnel)</label>
+            <textarea id="decisions_needed" name="decisions_needed" rows="3"></textarea>
+          </div>
+        </fieldset>
+      </section>
+
+      <div class="nav">
+        <button type="button" id="prevBtn" class="btn ghost" disabled>Précédent</button>
+        <button type="button" id="nextBtn" class="btn">Suivant</button>
+        <button type="submit" id="submitBtn" class="btn primary" hidden>Envoyer</button>
+      </div>
+
+      <p class="helper">Les champs obligatoires sont uniquement dans «&nbsp;BLOQUANTES&nbsp;».</p>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
