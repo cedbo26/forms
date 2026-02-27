@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SOMAVEA — Clarifications SEO / Google / OneDoc</title>
+
+  <style>
+    /* Mobile-first — inspiré de nepal_test :contentReference[oaicite:2]{index=2} */
+    :root{
+      --bg:#faf9fb; --card:#ffffff; --ink:#0f172a; --muted:#64748b;
+      --pri:#5fb3b3; --pri-weak:#e7f6f6; --acc:#f5a3b7; --acc-weak:#fdebf1;
+      --radius:16px; --pad:16px; --gap:14px; --max:860px;
+      --bd:#e5e7eb; --shadow:0 1px 2px rgba(0,0,0,.03);
+      --danger:#dc2626;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,#fbfcff,var(--bg));
+      font:16px/1.55 Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--ink);
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+    .wrap{max-width:var(--max);margin:22px auto;padding:0 14px}
+    header{margin-bottom:14px}
+    h1{font-size:1.35rem;margin:0 0 6px}
+    .lead{margin:0;color:var(--muted)}
+    form{display:grid;gap:var(--gap)}
+    fieldset{border:0;margin:0;padding:0}
+    .card{
+      background:var(--card);
+      border:1px solid var(--bd);
+      border-radius:var(--radius);
+      padding:var(--pad);
+      box-shadow:var(--shadow);
+      scroll-margin-top:14px;
+    }
+    .accent{
+      background:linear-gradient(180deg,#f7fbfb,#ffffff);
+      border-color:#d8eeee;
+    }
+    legend{font-weight:800;margin-bottom:8px}
+    .pill{
+      display:inline-block;
+      background:var(--pri-weak);
+      color:#0b7f7f;
+      padding:2px 10px;
+      border-radius:999px;
+      font-size:.82rem;
+      margin-left:6px;
+      vertical-align:middle;
+    }
+    .note{
+      background:var(--acc-weak);
+      border:1px solid #fbd0dc;
+      border-radius:12px;
+      padding:10px 12px;
+      color:#8a2342;
+      margin:0 0 10px;
+    }
+    .grid{display:grid;gap:var(--gap)}
+    .grid.cols-2{grid-template-columns:1fr}
+    .grid.cols-3{grid-template-columns:1fr}
+    @media (min-width:760px){
+      .wrap{margin:28px auto}
+      h1{font-size:1.5rem}
+      .grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    }
+    label{display:block;font-weight:700;margin-bottom:6px}
+    .req::after{content:" *";color:var(--danger)}
+    .hint{font-size:.92rem;color:var(--muted);margin:0 0 8px}
+    .sep{height:1px;background:var(--bd);margin:8px 0 12px}
+
+    input[type=text],input[type=email],input[type=tel],input[type=number],select,textarea{
+      width:100%;
+      padding:12px 12px;
+      border:1px solid var(--bd);
+      border-radius:12px;
+      background:#fff;
+      outline:none;
+      font-size:16px; /* évite zoom iOS */
+    }
+    input:focus,select:focus,textarea:focus{
+      border-color:#bfe7e7;
+      box-shadow:0 0 0 4px rgba(95,179,179,.16);
+    }
+    textarea{min-height:110px;resize:vertical}
+
+    .chips{display:flex;flex-wrap:wrap;gap:10px}
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border:1px solid var(--bd);
+      border-radius:999px;
+      background:#fff;
+      min-height:44px; /* target tactile */
+      user-select:none;
+    }
+    .chip input{margin:0}
+
+    /* CTA sticky confortable sur mobile */
+    .cta{
+      position:sticky;
+      bottom:0;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      padding:10px 0 4px;
+      background:linear-gradient(180deg, rgba(251,252,255,0), rgba(251,252,255,.92) 30%, rgba(251,252,255,.98));
+    }
+    button{
+      appearance:none;
+      border:0;
+      border-radius:14px;
+      padding:13px 16px;
+      font-weight:800;
+      cursor:pointer;
+      min-height:48px;
+      flex:1 1 220px;
+      font-size:16px;
+    }
+    button.primary{background:var(--pri);color:#083535}
+    button.ghost{background:#fff;border:1px solid var(--bd);color:var(--ink)}
+    .footer{font-size:.9rem;color:var(--muted);text-align:center;margin:6px 0 14px}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Clarifications — SOMAVEA <span class="pill">SEO / Google / OneDoc</span></h1>
+      <p class="lead">Réponses rapides (2–3 minutes). Objectif : aligner site, Google et OneDoc (public : adultes).</p>
+    </header>
+
+    <form id="somavea-form" action="https://formspree.io/f/mgolqoqo" method="POST" novalidate>
+      <input type="hidden" name="_subject" value="SOMAVEA — Réponses Julie (SEO/Google/OneDoc)" />
+      <input type="hidden" name="_language" value="fr" />
+      <input type="hidden" name="public" value="adultes" />
+
+      <!-- 1) Statut professionnel & titres -->
+      <fieldset class="card accent">
+        <legend>1) Statut professionnel &amp; titres <span class="pill">bloquant</span></legend>
+
+        <label class="req">1.1 Titre officiel</label>
+        <div class="chips" role="group" aria-label="Titre officiel">
+          <label class="chip"><input type="radio" name="statut_titre" value="psychologue_reconnu" required /> Je suis psychologue (titre protégé / reconnaissance officielle)</label>
+          <label class="chip"><input type="radio" name="statut_titre" value="psychotherapeute_reconnu" /> Je suis psychothérapeute reconnue</label>
+          <label class="chip"><input type="radio" name="statut_titre" value="therapeute_praticienne" /> Je suis thérapeute / praticienne (non-titre protégé)</label>
+          <label class="chip"><input type="radio" name="statut_titre" value="autre" /> Autre</label>
+        </div>
+
+        <div class="grid cols-2" style="margin-top:10px">
+          <div>
+            <label for="statut_autre">Si “Autre”, préciser</label>
+            <input id="statut_autre" name="statut_titre_autre" type="text" placeholder="Ex. praticienne en..." />
+          </div>
+          <div>
+            <label class="req">1.2 Affiliations / reconnaissance</label>
+            <div class="chips" role="group" aria-label="Affiliations">
+              <label class="chip"><input type="radio" name="statut_affiliation" value="oui" required /> Oui</label>
+              <label class="chip"><input type="radio" name="statut_affiliation" value="non" /> Non</label>
+              <label class="chip"><input type="radio" name="statut_affiliation" value="ne_pas_communiquer" /> Je préfère ne pas communiquer cette info en ligne</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid cols-2" style="margin-top:10px">
+          <div>
+            <label for="aff_org">Si oui : organisme / association</label>
+            <input id="aff_org" name="statut_affiliation_organisme" type="text" placeholder="Ex. FSP / ASP / ..." />
+          </div>
+          <div>
+            <label for="aff_compl">Compléments</label>
+            <input id="aff_compl" name="statut_affiliation_complements" type="text" placeholder="Optionnel" />
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 2) Offre & priorité business -->
+      <fieldset class="card">
+        <legend>2) Offre &amp; priorité business</legend>
+
+        <label class="req">2.1 Objectif prioritaire</label>
+        <div class="chips" role="group" aria-label="Objectif prioritaire">
+          <label class="chip"><input type="radio" name="objectif_prioritaire" value="lausanne_lun_mar" required /> Remplir les créneaux Lausanne (lundi-mardi)</label>
+          <label class="chip"><input type="radio" name="objectif_prioritaire" value="developper_yoga_vevey" /> Développer aussi yoga à Vevey</label>
+          <label class="chip"><input type="radio" name="objectif_prioritaire" value="autorite_long_terme" /> Construire image long terme / autorité</label>
+          <label class="chip"><input type="radio" name="objectif_prioritaire" value="autre" /> Autre</label>
+        </div>
+
+        <div class="grid cols-2" style="margin-top:10px">
+          <div>
+            <label for="objectif_autre">Si “Autre”, préciser</label>
+            <input id="objectif_autre" name="objectif_autre_precision" type="text" placeholder="Optionnel" />
+          </div>
+          <div>
+            <label for="objectif_compl">Compléments</label>
+            <input id="objectif_compl" name="objectif_complements" type="text" placeholder="Optionnel" />
+          </div>
+        </div>
+
+        <div class="sep"></div>
+
+        <label class="req">2.2 Services réellement proposés à Lausanne (coche tout ce qui est exact)</label>
+        <div class="chips" role="group" aria-label="Services Lausanne">
+          <label class="chip"><input type="checkbox" name="services_lausanne[]" value="therapie_psycho_corporelle" required /> Thérapie / accompagnement psycho-corporel</label>
+          <label class="chip"><input type="checkbox" name="services_lausanne[]" value="sophrologie_integree" /> Sophrologie (intégrée aux séances)</label>
+          <label class="chip"><input type="checkbox" name="services_lausanne[]" value="sophrologie_seule" /> Sophrologie seule</label>
+          <label class="chip"><input type="checkbox" name="services_lausanne[]" value="soins_energetiques" /> Soins énergétiques</label>
+          <label class="chip"><input type="checkbox" id="srv-autre" name="services_lausanne[]" value="autre" /> Autre</label>
+        </div>
+
+        <div id="srv-autre-wrap" class="grid" style="margin-top:10px;display:none">
+          <div>
+            <label for="services_autre">Si “Autre”, préciser</label>
+            <input id="services_autre" name="services_lausanne_autre_precision" type="text" placeholder="Optionnel" />
+          </div>
+        </div>
+
+        <div class="sep"></div>
+
+        <label>2.3 Yoga à Vevey</label>
+        <div class="chips" role="group" aria-label="Yoga Vevey">
+          <label class="chip"><input type="radio" name="yoga_vevey" value="regulier" /> Cours réguliers</label>
+          <label class="chip"><input type="radio" name="yoga_vevey" value="ponctuel" /> Ateliers ponctuels</label>
+          <label class="chip"><input type="radio" name="yoga_vevey" value="secondaire" /> Activité secondaire</label>
+          <label class="chip"><input type="radio" name="yoga_vevey" value="plus_actualite" /> Plus d’actualité</label>
+        </div>
+
+        <div class="grid" style="margin-top:10px">
+          <div>
+            <label for="yoga_lieu">Lieu exact (si applicable)</label>
+            <input id="yoga_lieu" name="yoga_vevey_lieu" type="text" placeholder="Nom du centre / adresse" />
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 3) Cadre des séances (sans 3.1 Public) -->
+      <fieldset class="card accent">
+        <legend>3) Cadre des séances</legend>
+
+        <label class="req">3.2 Motifs principaux (max 5)</label>
+        <p class="hint">Coche uniquement les thèmes les plus fréquents.</p>
+        <div class="chips" role="group" aria-label="Motifs">
+          <label class="chip"><input type="checkbox" name="motifs[]" value="stress" /> Stress</label>
+          <label class="chip"><input type="checkbox" name="motifs[]" value="anxiete" /> Anxiété</label>
+          <label class="chip"><input type="checkbox" name="motifs[]" value="burnout" /> Burnout</label>
+          <label class="chip"><input type="checkbox" name="motifs[]" value="transitions_vie" /> Transitions de vie</label>
+          <label class="chip"><input type="checkbox" name="motifs[]" value="relations" /> Relations</label>
+          <label class="chip"><input type="checkbox" name="motifs[]" value="estime_soi" /> Estime de soi</label>
+          <label class="chip"><input type="checkbox" name="motifs[]" value="somatisations" /> Somatisations</label>
+          <label class="chip"><input type="checkbox" id="mot-autre" name="motifs[]" value="autre" /> Autre</label>
+        </div>
+
+        <div id="mot-autre-wrap" class="grid" style="margin-top:10px;display:none">
+          <div>
+            <label for="motifs_autre">Si “Autre”, préciser</label>
+            <input id="motifs_autre" name="motifs_autre_precision" type="text" placeholder="Optionnel" />
+          </div>
+        </div>
+
+        <div class="sep"></div>
+
+        <div class="grid cols-3">
+          <div>
+            <label class="req" for="duree">3.3 Durée standard</label>
+            <input id="duree" name="seance_duree" type="text" placeholder="Ex. 60 min" required />
+          </div>
+          <div>
+            <label class="req" for="prix">Prix</label>
+            <input id="prix" name="seance_prix" type="text" placeholder="Ex. 120 CHF" required />
+          </div>
+          <div>
+            <label class="req" for="premiere_diff">1ère séance différente ?</label>
+            <select id="premiere_diff" name="premiere_seance_diff" required>
+              <option value="">Choisir…</option>
+              <option value="non">Non</option>
+              <option value="oui">Oui</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid" style="margin-top:10px">
+          <div>
+            <label for="premiere_details">Si oui : détails (durée/prix/contenu)</label>
+            <input id="premiere_details" name="premiere_seance_details" type="text" placeholder="Optionnel" />
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 4) Google -->
+      <fieldset class="card">
+        <legend>4) Google (fiche établissement) <span class="pill">décision</span></legend>
+
+        <div class="note">
+          Sur Google, la catégorie actuelle est <strong>Psychologue</strong>. On doit confirmer si on la garde ou si on la remplace, pour rester cohérente et éviter tout risque.
+        </div>
+
+        <label class="req">4.1 Conserver “Psychologue” comme catégorie principale ?</label>
+        <div class="chips" role="group" aria-label="Conserver psychologue">
+          <label class="chip"><input type="radio" name="gbp_conserver_psychologue" value="oui" required /> Oui, garder</label>
+          <label class="chip"><input type="radio" name="gbp_conserver_psychologue" value="non" /> Non, retirer</label>
+          <label class="chip"><input type="radio" name="gbp_conserver_psychologue" value="incertain" /> Je ne sais pas / à discuter</label>
+        </div>
+
+        <div class="grid" style="margin-top:10px">
+          <div>
+            <label class="req" for="gbp_raison">Pourquoi ? (1–2 phrases)</label>
+            <textarea id="gbp_raison" name="gbp_raison" placeholder="Ex. parce que je suis reconnue / parce que je veux aligner avec mon approche, etc." required></textarea>
+          </div>
+        </div>
+
+        <div class="sep"></div>
+
+        <label class="req">4.2 Si on retire “Psychologue”, dans quel type de recherche veux-tu apparaître principalement ? (max 2)</label>
+        <p class="hint">Choisis ce qui te ramènera le bon public à Lausanne.</p>
+        <div class="chips" role="group" aria-label="Cibles Google">
+          <label class="chip"><input type="checkbox" name="gbp_cible[]" value="therapie_psycho_corporelle" /> Thérapie psycho-corporelle</label>
+          <label class="chip"><input type="checkbox" name="gbp_cible[]" value="sophrologie" /> Sophrologie</label>
+          <label class="chip"><input type="checkbox" name="gbp_cible[]" value="soins_energetiques" /> Soins énergétiques</label>
+          <label class="chip"><input type="checkbox" name="gbp_cible[]" value="approche_holistique" /> Approche holistique / bien-être</label>
+          <label class="chip"><input type="checkbox" id="gbp-autre" name="gbp_cible[]" value="autre" /> Autre</label>
+        </div>
+
+        <div id="gbp-autre-wrap" class="grid" style="margin-top:10px;display:none">
+          <div>
+            <label for="gbp_cible_autre">Si “Autre”, préciser</label>
+            <input id="gbp_cible_autre" name="gbp_cible_autre_precision" type="text" placeholder="Optionnel" />
+          </div>
+        </div>
+
+        <div class="grid" style="margin-top:10px">
+          <div>
+            <label for="gbp_mots">Mots-clés importants (Lausanne)</label>
+            <input id="gbp_mots" name="gbp_mots_cles" type="text" placeholder="Ex. stress, anxiété, somatisation, transitions…" />
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 5) OneDoc -->
+      <fieldset class="card accent">
+        <legend>5) OneDoc <span class="pill">cohérence</span></legend>
+
+        <div class="note">
+          Aujourd’hui, OneDoc te présente comme “psychologue à Lausanne”. On doit décider si on garde cette ligne ou si on aligne OneDoc sur l’approche psycho-corporelle / holistique.
+        </div>
+
+        <label class="req">5.1 Sur OneDoc, conserver le positionnement “Psychologue” ?</label>
+        <div class="chips" role="group" aria-label="OneDoc psychologue">
+          <label class="chip"><input type="radio" name="onedoc_conserver_psychologue" value="oui" required /> Oui</label>
+          <label class="chip"><input type="radio" name="onedoc_conserver_psychologue" value="non" /> Non</label>
+          <label class="chip"><input type="radio" name="onedoc_conserver_psychologue" value="incertain" /> Je ne sais pas / à discuter</label>
+        </div>
+
+        <div class="grid cols-2" style="margin-top:10px">
+          <div>
+            <label class="req" for="onedoc_objectif">5.2 Objectif principal sur OneDoc</label>
+            <select id="onedoc_objectif" name="onedoc_objectif" required>
+              <option value="">Choisir…</option>
+              <option value="rdv_therapie_psycho_corporelle">Rendez-vous thérapie psycho-corporelle (Lausanne)</option>
+              <option value="rdv_sophrologie">Rendez-vous sophrologie</option>
+              <option value="rdv_soins_energetiques">Rendez-vous soins énergétiques</option>
+              <option value="mix">Mix (à préciser)</option>
+            </select>
+          </div>
+          <div>
+            <label for="onedoc_mix">Si “Mix”, préciser</label>
+            <input id="onedoc_mix" name="onedoc_mix_precision" type="text" placeholder="Optionnel" />
+          </div>
+        </div>
+
+        <div class="sep"></div>
+
+        <label class="req">5.3 Les 3 prestations à mettre en avant sur OneDoc (max 3)</label>
+        <div class="grid cols-3">
+          <div>
+            <label for="onedoc_p1">Prestation 1</label>
+            <input id="onedoc_p1" name="onedoc_prestation_1" type="text" placeholder="Ex. Thérapie psycho-corporelle" />
+          </div>
+          <div>
+            <label for="onedoc_p2">Prestation 2</label>
+            <input id="onedoc_p2" name="onedoc_prestation_2" type="text" placeholder="Optionnel" />
+          </div>
+          <div>
+            <label for="onedoc_p3">Prestation 3</label>
+            <input id="onedoc_p3" name="onedoc_prestation_3" type="text" placeholder="Optionnel" />
+          </div>
+        </div>
+
+        <div class="grid" style="margin-top:10px">
+          <div>
+            <label class="req" for="onedoc_phrase">5.4 En 1 phrase : que doit comprendre une personne en arrivant sur ta fiche OneDoc ?</label>
+            <textarea id="onedoc_phrase" name="onedoc_phrase_cle" placeholder="Ex. J’accompagne les adultes à Lausanne avec une approche psycho-corporelle intégrant la sophrologie…" required></textarea>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 6) Contraintes -->
+      <fieldset class="card">
+        <legend>6) Contraintes &amp; limites de communication <span class="pill">important</span></legend>
+
+        <div class="grid">
+          <div>
+            <label class="req" for="no_show">6.1 Ce que tu ne veux PAS afficher clairement en ligne</label>
+            <textarea id="no_show" name="contraintes_ne_pas_afficher" placeholder="Ex. je ne veux pas mentionner X, je ne veux pas apparaître comme Y…" required></textarea>
+          </div>
+
+          <div>
+            <label class="req" for="must_show">6.2 Ce que tu veux ABSOLUMENT voir apparaître</label>
+            <textarea id="must_show" name="contraintes_a_afficher" placeholder="Ex. approche psycho-corporelle, stress/anxiété, Lausanne…" required></textarea>
+          </div>
+
+          <div>
+            <label class="req" for="wanted_cat">6.3 Dans quel type de recherche je veux être trouvée sur Google</label>
+            <textarea id="wanted_cat" name="categorie_voulue_google" placeholder="Ex. thérapie psycho-corporelle Lausanne, sophrologue Lausanne…" required></textarea>
+          </div>
+
+          <div>
+            <label class="req" for="avoid_cat">6.4 Dans quel type de recherche je NE veux PAS être trouvée</label>
+            <textarea id="avoid_cat" name="categorie_a_eviter_google" placeholder="Ex. psychologue (si non), soins énergétiques (si discret)…" required></textarea>
+          </div>
+
+          <div>
+            <label class="req" for="positioning">6.5 Mon positionnement idéal (1 phrase)</label>
+            <textarea id="positioning" name="positionnement_ideal_1_phrase" placeholder="Ex. J’accompagne les adultes à Lausanne avec une approche psycho-corporelle…" required></textarea>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="cta">
+        <button class="primary" type="submit">Envoyer</button>
+        <button class="ghost" type="reset">Réinitialiser</button>
+      </div>
+
+      <div class="footer">
+        Merci — ces réponses servent uniquement à aligner le site, Google et OneDoc.
+      </div>
+    </form>
+  </div>
+
+  <script>
+    (function () {
+      const srvAutre = document.getElementById('srv-autre');
+      const srvWrap  = document.getElementById('srv-autre-wrap');
+      if (srvAutre && srvWrap) {
+        srvAutre.addEventListener('change', () => {
+          srvWrap.style.display = srvAutre.checked ? 'grid' : 'none';
+        });
+      }
+
+      const motAutre = document.getElementById('mot-autre');
+      const motWrap  = document.getElementById('mot-autre-wrap');
+      if (motAutre && motWrap) {
+        motAutre.addEventListener('change', () => {
+          motWrap.style.display = motAutre.checked ? 'grid' : 'none';
+        });
+      }
+
+      const gbpAutre = document.getElementById('gbp-autre');
+      const gbpWrap  = document.getElementById('gbp-autre-wrap');
+      if (gbpAutre && gbpWrap) {
+        gbpAutre.addEventListener('change', () => {
+          gbpWrap.style.display = gbpAutre.checked ? 'grid' : 'none';
+        });
+      }
+
+      function enforceMax(name, max) {
+        const boxes = Array.from(document.querySelectorAll(`input[name="${name}"]`));
+        if (!boxes.length) return;
+        boxes.forEach(b => b.addEventListener("change", () => {
+          const checked = boxes.filter(x => x.checked);
+          if (checked.length > max) b.checked = false;
+        }));
+      }
+      enforceMax("motifs[]", 5);
+      enforceMax("gbp_cible[]", 2);
+    })();
+  </script>
+</body>
+</html>
